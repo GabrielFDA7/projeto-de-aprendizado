@@ -1,0 +1,10 @@
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Node (para futuro)
+node_modules/
