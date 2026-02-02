@@ -276,18 +276,18 @@ No arquivo `styles.css`, implemente:
 - [X] Adicione `padding` para dar espaço interno
 
 **Navegação:**
-- [ ] Estilize os links do `nav` removendo o sublinhado padrão
-- [ ] Mude a cor dos links
-- [ ] Adicione espaço entre os links
+- [X] Estilize os links do `nav` removendo o sublinhado padrão
+- [X] Mude a cor dos links
+- [X] Adicione espaço entre os links
 
 **Seções:**
-- [ ] Adicione `padding` às `section` para dar respiro ao conteúdo
-- [ ] Centralize os títulos `h2`
+- [X] Adicione `padding` às `section` para dar respiro ao conteúdo
+- [X] Centralize os títulos `h2`
 
 **Footer:**
-- [ ] Aplique uma cor de fundo
-- [ ] Centralize o texto
-- [ ] Mude a cor do texto para combinar com o fundo
+- [X] Aplique uma cor de fundo
+- [X] Centralize o texto
+- [X] Mude a cor do texto para combinar com o fundo
 
 ---
 
@@ -295,14 +295,14 @@ No arquivo `styles.css`, implemente:
 
 Antes de ir para a próxima aula, confirme:
 
-- [ ] Criei o arquivo `styles.css` na pasta `portfolio/`
-- [ ] Linkei o CSS no `<head>` do HTML
-- [ ] O `body` tem margem 0 e uma fonte definida
-- [ ] O `header` tem cor de fundo e padding
-- [ ] Os links do `nav` estão estilizados
-- [ ] As seções têm padding
-- [ ] O `footer` tem cor de fundo e texto centralizado
-- [ ] Ao abrir o HTML no navegador, os estilos aparecem!
+- [X] Criei o arquivo `styles.css` na pasta `portfolio/`
+- [X] Linkei o CSS no `<head>` do HTML
+- [X] O `body` tem margem 0 e uma fonte definida
+- [X] O `header` tem cor de fundo e padding
+- [X] Os links do `nav` estão estilizados
+- [X] As seções têm padding
+- [X] O `footer` tem cor de fundo e texto centralizado
+- [X] Ao abrir o HTML no navegador, os estilos aparecem!
 
 ---
 
