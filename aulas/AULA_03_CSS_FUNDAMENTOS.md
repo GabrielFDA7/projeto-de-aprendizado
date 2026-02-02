@@ -267,13 +267,13 @@ No `<head>` do seu `index.html`, adicione:
 No arquivo `styles.css`, implemente:
 
 **Reset básico:**
-- [ ] Remova a margem padrão do `body` com `margin: 0;`
-- [ ] Defina uma fonte padrão para o `body` (sugestão: `Arial, sans-serif`)
+- [X] Remova a margem padrão do `body` com `margin: 0;`
+- [X] Defina uma fonte padrão para o `body` (sugestão: `Arial, sans-serif`)
 
 **Header:**
-- [ ] Aplique uma cor de fundo ao `header` (escolha uma que combine)
-- [ ] Centralize o texto do `header`
-- [ ] Adicione `padding` para dar espaço interno
+- [X] Aplique uma cor de fundo ao `header` (escolha uma que combine)
+- [X] Centralize o texto do `header`
+- [X] Adicione `padding` para dar espaço interno
 
 **Navegação:**
 - [ ] Estilize os links do `nav` removendo o sublinhado padrão

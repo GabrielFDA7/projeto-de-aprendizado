@@ -1,0 +1,29 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+}
+h1{
+    color: rgb(252, 194, 5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header {
+    background-color: #1a1a2e;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid navy;
+}
+#introdução{
+    color: rgb(255, 255, 255);
+}
+nav a,
+nav a:visited,
+nav a:not(:last-child) {
+    text-decoration: none;  
+    color: rgb(252, 194, 5);
+    margin-right: 2rem;
+}
+nav a:hover {
+    color: white;
+    text-transform: uppercase;
+}
