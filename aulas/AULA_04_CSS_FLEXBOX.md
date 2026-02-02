@@ -245,17 +245,17 @@ Aplicar Flexbox no seu portfólio para melhorar o layout.
 ### Requisitos:
 
 **Navegação (nav):**
-- [ ] Aplicar `display: flex` no `nav`
-- [ ] Usar `justify-content` para distribuir os links
-- [ ] Adicionar `gap` entre os links (substitui o `margin-right`)
+- [x] Aplicar `display: flex` no `nav`
+- [X] Usar `justify-content` para distribuir os links
+- [X] Adicionar `gap` entre os links (substitui o `margin-right`)
 
 **Header:**
-- [ ] Usar Flexbox para organizar o conteúdo do header
-- [ ] Centralizar verticalmente o conteúdo
+- [X] Usar Flexbox para organizar o conteúdo do header
+- [X] Centralizar verticalmente o conteúdo
 
 **Seção de Habilidades ou Projetos:**
-- [ ] Criar um layout com items lado a lado usando Flexbox
-- [ ] Usar `flex-wrap: wrap` para quebrar linha em telas pequenas
+- [X] Criar um layout com items lado a lado usando Flexbox
+- [X] Usar `flex-wrap: wrap` para quebrar linha em telas pequenas
 
 ---
 
@@ -263,11 +263,11 @@ Aplicar Flexbox no seu portfólio para melhorar o layout.
 
 Antes de ir para a próxima aula, confirme:
 
-- [ ] O `nav` usa `display: flex`
-- [ ] Os links estão bem distribuídos com `justify-content` ou `gap`
-- [ ] Você entende a diferença entre `justify-content` e `align-items`
-- [ ] O site continua funcionando corretamente após as mudanças
-- [ ] Você testou redimensionar a janela para ver o comportamento
+- [X] O `nav` usa `display: flex`
+- [X] Os links estão bem distribuídos com `justify-content` ou `gap`
+- [X] Você entende a diferença entre `justify-content` e `align-items`
+- [X] O site continua funcionando corretamente após as mudanças
+- [X] Você testou redimensionar a janela para ver o comportamento
 
 ---
 
