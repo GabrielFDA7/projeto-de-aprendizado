@@ -235,48 +235,48 @@ Reescrever seu `portfolio/index.html` usando HTML semântico, criando uma estrut
 ### Requisitos:
 
 **Estrutura Geral:**
-- [ ] A página deve ter `<header>`, `<main>` e `<footer>`
-- [ ] O `<main>` deve conter várias `<section>`
-- [ ] Cada `<section>` deve ter um `id` único
+- [X] A página deve ter `<header>`, `<main>` e `<footer>`
+- [X] O `<main>` deve conter várias `<section>`
+- [X] Cada `<section>` deve ter um `id` único
 
 **No `<header>`:**
-- [ ] Seu nome em um `<h1>`
-- [ ] Um subtítulo/slogan em `<p>` (ex: "Desenvolvedor Web em Formação")
-- [ ] Um `<nav>` com links para cada seção (use links âncora #)
+- [X] Seu nome em um `<h1>`
+- [X] Um subtítulo/slogan em `<p>` (ex: "Desenvolvedor Web em Formação")
+- [X] Um `<nav>` com links para cada seção (use links âncora #)
 
 **No `<main>`, crie estas seções:**
 
 1. **Seção "hero"** (id="hero"):
-   - [ ] Apresentação inicial impactante
-   - [ ] Uma frase de destaque sobre você
+   - [X] Apresentação inicial impactante
+   - [X] Uma frase de destaque sobre você
 
 2. **Seção "sobre"** (id="sobre"):
-   - [ ] Título `<h2>` "Sobre Mim"
-   - [ ] 1-2 parágrafos falando sobre você
+   - [X] Título `<h2>` "Sobre Mim"
+   - [X] 1-2 parágrafos falando sobre você
 
 3. **Seção "habilidades"** (id="habilidades"):
-   - [ ] Título `<h2>` 
-   - [ ] Lista com habilidades que está aprendendo (HTML, CSS, etc.)
-   - [ ] Lista com conhecimentos prévios (VBA, Python, C, etc.)
+   - [X] Título `<h2>` 
+   - [X] Lista com habilidades que está aprendendo (HTML, CSS, etc.)
+   - [X] Lista com conhecimentos prévios (VBA, Python, C, etc.)
 
 4. **Seção "projetos"** (id="projetos"):
-   - [ ] Título `<h2>`
-   - [ ] Pelo menos 2 projetos, cada um em um `<article>`
-   - [ ] Cada projeto com: título `<h3>`, descrição, e link (se tiver)
-   - [ ] Inclua o VILUANMA como um dos projetos!
+   - [X] Título `<h2>`
+   - [X] Pelo menos 2 projetos, cada um em um `<article>`
+   - [X] Cada projeto com: título `<h3>`, descrição, e link (se tiver)
+   - [X] Inclua o VILUANMA como um dos projetos!
 
 5. **Seção "contato"** (id="contato"):
-   - [ ] Título `<h2>`
-   - [ ] Lista com formas de contato (e-mail, LinkedIn, GitHub)
-   - [ ] Use `mailto:` para o link de e-mail
-   - [ ] Use `target="_blank"` para links externos
+   - [X] Título `<h2>`
+   - [X] Lista com formas de contato (e-mail, LinkedIn, GitHub)
+   - [X] Use `mailto:` para o link de e-mail
+   - [X] Use `target="_blank"` para links externos
 
 **No `<footer>`:**
-- [ ] Texto de copyright com seu nome e o ano
-- [ ] Uma mensagem pessoal (opcional)
+- [X] Texto de copyright com seu nome e o ano
+- [X] Uma mensagem pessoal (opcional)
 
 **Navegação:**
-- [ ] Os links no `<nav>` devem funcionar (rolar até a seção correspondente)
+- [X] Os links no `<nav>` devem funcionar (rolar até a seção correspondente)
 
 ---
 
@@ -284,14 +284,14 @@ Reescrever seu `portfolio/index.html` usando HTML semântico, criando uma estrut
 
 Antes de ir para a próxima aula, confirme:
 
-- [ ] Minha página tem `<header>`, `<main>` e `<footer>`
-- [ ] A navegação usa `<nav>` com links âncora
-- [ ] Tenho pelo menos 5 seções diferentes dentro do `<main>`
-- [ ] Cada seção tem um `id` único
-- [ ] Os projetos usam `<article>`
-- [ ] Os links externos usam `target="_blank"`
-- [ ] O link de e-mail usa `mailto:`
-- [ ] Ao clicar nos links do menu, a página rola para a seção correta
+- [X] Minha página tem `<header>`, `<main>` e `<footer>`
+- [X] A navegação usa `<nav>` com links âncora
+- [X] Tenho pelo menos 5 seções diferentes dentro do `<main>`
+- [X] Cada seção tem um `id` único
+- [X] Os projetos usam `<article>`
+- [X] Os links externos usam `target="_blank"`
+- [X] O link de e-mail usa `mailto:`
+- [X] Ao clicar nos links do menu, a página rola para a seção correta
 
 ---
 
