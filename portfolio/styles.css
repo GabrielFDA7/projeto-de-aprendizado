@@ -1,29 +1,27 @@
+/* ========================================
+   ESTILOS BASE - MOBILE FIRST
+   ======================================== */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-}
-
-@media (min-width: 768px) {
-    body {
-        margin: 0;
-        background-color: #f5f5f5;
-    }
-
-    body p {
-    font-size: large;
-    }
+    background-color: #f5f5f5;
 }
 
 h1 {
     color: rgb(252, 194, 5);
-    font-size: 2rem;
+    font-size: 1.3rem;
 }
 
-@media (min-width: 768px) {
-    h1 {
-        font-size: rem;
-    }
+h2 {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgb(252, 194, 5);
 }
+
+/* ========================================
+   HEADER
+   ======================================== */
 
 header {
     background-color: #1a1a2e;
@@ -42,6 +40,10 @@ header {
     white-space: nowrap;
 }
 
+/* ========================================
+   NAVEGAÇÃO
+   ======================================== */
+
 nav {
     padding-top: 20px;
     display: flex;
@@ -49,17 +51,6 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-
-}
-
-@media(min-width: 768px) {
-    nav {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 4rem;
-
-    }
 }
 
 nav a,
@@ -68,33 +59,26 @@ nav a:visited {
     color: rgb(252, 194, 5);
 }
 
-nav a:hover {
-    color: white;
-    text-transform: uppercase;
+/* ========================================
+   SEÇÕES
+   ======================================== */
+
+#hero,
+#sobre,
+#habilidades,
+#projetos,
+#contato {
+    padding: 20px;
 }
 
-h2 {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgb(252, 194, 5);
-}
-
-#hero {
-    padding: 30px;
-}
-
-#sobre {
-    padding: 30px;
-}
-
-#habilidades {
-    padding: 30px;
-}
+/* ========================================
+   HABILIDADES
+   ======================================== */
 
 .habilidades-container {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
-    flex-wrap: wrap;
 }
 
 .habilidades-container div {
@@ -103,58 +87,33 @@ h2 {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#projetos {
-    padding: 30px;
-}
+/* ========================================
+   PROJETOS
+   ======================================== */
 
 .projetos-container {
-    flex: 1;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-}
-
-@media (min-width: 768px) {
-    .projetos-container {
-        flex: 1;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .projeto-destaque {
-        grid-column: span 2;
-        text-align: center;
-        justify-content: center;
-        list-style: none;
-    }
-
-    .projeto-destaque li {
-        text-align: center;
-        justify-self: center;
-    }
-}
-
-.projeto-destaque a {
-    text-decoration: none;
 }
 
 .projetos-container article {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
-#contato {
-    padding: 30px;
+.projeto-destaque a {
+    text-decoration: none;
 }
+
+/* ========================================
+   FOOTER
+   ======================================== */
 
 footer {
     background-color: #1a1a2e;
@@ -162,4 +121,65 @@ footer {
     padding: 30px;
     color: rgb(252, 194, 5);
     border-top: 2px solid navy;
+}
+
+/* ========================================
+   RESPONSIVIDADE - TABLET E DESKTOP (768px+)
+   ======================================== */
+
+@media (min-width: 768px) {
+
+    /* Tipografia */
+    h1 {
+        font-size: 3rem;
+    }
+
+    #introdução {
+        font-size: 1.2rem;
+    }
+
+    body p {
+        font-size: large;
+    }
+
+    /* Navegação */
+    nav {
+        flex-direction: row;
+        gap: 4rem;
+    }
+
+    nav a:hover {
+        color: white;
+        text-transform: uppercase;
+    }
+
+    /* Seções */
+    #hero,
+    #sobre,
+    #habilidades,
+    #projetos,
+    #contato {
+        padding: 30px;
+    }
+
+    /* Habilidades */
+    .habilidades-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /* Projetos */
+    .projetos-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projeto-destaque {
+        grid-column: span 2;
+        text-align: center;
+    }
+
+    .projeto-destaque li {
+        text-align: center;
+        justify-self: center;
+    }
 }

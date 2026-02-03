@@ -216,8 +216,8 @@ Tornar seu portfólio totalmente responsivo, adaptando o layout para funcionar p
 - [X] O projeto destaque (`span 2`) deve ocupar 1 coluna no mobile
 
 **4. Tipografia Responsiva:**
-- [ ] Títulos (`h1`, `h2`) devem ser menores no mobile
-- [ ] Padding das seções deve ser reduzido no mobile
+- [X] Títulos (`h1`, `h2`) devem ser menores no mobile
+- [X] Padding das seções deve ser reduzido no mobile
 
 ---
 
