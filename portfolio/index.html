@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>   
+<body>
     <header>
         <h1> Gabriel de Angelis - Meu Portfólio </h1>
         <p id="introdução"> O início do Desenvolvedor Web mais aplicado do Brasil</p>
@@ -53,15 +53,29 @@
 
         <section id="habilidades">
             <h2>Habilidades</h2>
-            <p>Minhas habilidades técnicas incluem:</p>
-            <ul>
-                <li>Pacote Office completo, com grande foco em Excel</li>
-                <li>Inglês Fluente - nível C1, com certificado FCE de Cambridge</li>
-                <li>Conhecimento vasto em VBA, linguagem de automação do Excel</li>
-                <li>Python básico, aprendido trabalhando na SOTREQ e automatizando processos e analisando dados</li>
-                <li>Comunicação eficiente e facilidade em passar conhecimento - adquiridos quando fui professor de
-                    Inglês</li>
-            </ul>
+            <div class="habilidades-container">
+                <div>
+                    <p>Minhas habilidades técnicas incluem:</p>
+                    <ul>
+                        <li>Pacote Office completo, com grande foco em Excel</li>
+                        <li>Inglês Fluente - nível C1, com certificado FCE de Cambridge</li>
+                        <li>Conhecimento vasto em VBA, linguagem de automação do Excel</li>
+                        <li>Python básico, aprendido trabalhando na SOTREQ e automatizando processos e analisando dados</li>
+                        <li>Comunicação eficiente e facilidade em passar conhecimento - adquiridos quando fui professor de
+                            Inglês</li>
+                    </ul>
+                </div>
+                <div>
+                    <p>As habilidades que ainda estou aprimorando são:</p>
+                    <ul>
+                        <li>Desenvolvimento Web</li>
+                        <li>React e Node.js</li>
+                        <li>Desenvolvimento Mobile</li>
+                        <li>Desenvolvimento de jogos - Unity e C#</li>
+                        <li>Banco de Dados - MySQL e MongoDB</li>
+                    </ul>
+                </div>
+            </div>
             <p>Além dessas habilidades técnicas, possuo um grande interesse em aprender coisas novas e muita facilidade
                 para adaptar novos ambientes e resolver problemas.</p>
         </section>
@@ -72,7 +86,7 @@
             <p>Estou praticando a partir do <strong>AntiGravity</strong>, com um roadmap que cobre o <em>essencial para
                     ser um desenvolvedor.</em></p>
             <div class="projetos-container">
-                <article>
+                <article class="projeto-destaque">
                     <h3>Projeto 1 - VILUANMA (Site de Vendas)</h3>
                     <a href="https://viluanma.netlify.app" target="_blank">Clique para ser redirecionado ao meu site de
                         vendas!</a>
@@ -81,21 +95,41 @@
                         <li>Bolsas de Crochê</li>
                         <li>Pratas 925</li>
                     </ul>
-                    <p>O site foi desenvolvido utilizando HTML, CSS e JavaScript, com foco em responsividade e experiência
+                    <p>O site foi desenvolvido utilizando HTML, CSS e JavaScript, com foco em responsividade e
+                        experiência
                         do usuário.</p>
                 </article>
 
                 <article>
                     <h3>Projeto 2 - Verificador de Disponibilidade</h3>
-                    <p>Projeto desenvolvido em VBA com integração com o SAP, utilizado na SOTREQ. O projeto foi feito com o
-                        intuito de automatizar o processo de verificação de disponibilidade de peças vendidas pela SOTREQ.
+                    <p>Projeto desenvolvido em VBA com integração com o SAP, utilizado na SOTREQ. O projeto foi feito
+                        com o
+                        intuito de automatizar o processo de verificação de disponibilidade de peças vendidas pela
+                        SOTREQ.
                     </p>
                     <p>É uma planilha do Excel, em que o usuário insere o código da peça e os scripts criados em VBA são
                         executados para verificar a disponibilidade da peça no SAP.</p>
-                    <p>A principal vantagem desse projeto é a economia de tempo, já que o processo manual levava em média 5
+                    <p>A principal vantagem desse projeto é a economia de tempo, já que o processo manual levava em
+                        média 5
                         minutos por peça, enquanto o processo automatizado leva apenas alguns segundos.</p>
                     <p>Além disso, a transação do SAP usada nesse projeto <strong>(YLP_PARTS)</strong> nunca havia sido
                         integrada com o Excel antes, o que torna esse projeto inovador dentro da empresa.</p>
+                </article>
+                <article>
+                    <h3>Projeto 3 - Processador de Pedidos - Fagundes </h3>
+                    <p>
+                        Este é um projeto feito em Python, que tem como objetivo automatizar o processo de pedidos do
+                        site da Fagundes,
+                        um dos clientes SOTREQ.<br>O projeto foi desenvolvido utilizando a biblioteca Selenium para
+                        realizar as ações no site,
+                        o que antes era feito por uma vendedora manualmente.
+                    </p>
+                    <p>
+                        Com a automação, essa vendedora conseguiu otimizar o seu trabalho de forma exponencial, já que
+                        antes o processo manual
+                        poderia demorar mais de 15 minutos, a depender do tamanho do pedido que seria cotado.<br>Agora
+                        automatizado, leva apenas alguns segundos.
+                    </p>
                 </article>
             </div>
         </section>
