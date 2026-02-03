@@ -202,18 +202,18 @@ Tornar seu portfólio totalmente responsivo, adaptando o layout para funcionar p
 ### Requisitos:
 
 **1. Header Responsivo:**
-- [ ] No mobile, a navegação deve ficar em coluna (uma linha para cada link)
-- [ ] No desktop, a navegação deve ficar em linha
-- [ ] Reduzir o `gap` da navegação no mobile
+- [X] No mobile, a navegação deve ficar em coluna (uma linha para cada link)
+- [X] No desktop, a navegação deve ficar em linha
+- [X] Reduzir o `gap` da navegação no mobile
 
 **2. Seção de Habilidades:**
-- [ ] No mobile, os cards devem ficar empilhados (um embaixo do outro)
-- [ ] No tablet/desktop, os cards ficam lado a lado
+- [X] No mobile, os cards devem ficar empilhados (um embaixo do outro)
+- [X] No tablet/desktop, os cards ficam lado a lado
 
 **3. Seção de Projetos:**
-- [ ] No mobile, mostrar apenas 1 coluna
-- [ ] No tablet, mostrar 2 colunas
-- [ ] O projeto destaque (`span 2`) deve ocupar 1 coluna no mobile
+- [X] No mobile, mostrar apenas 1 coluna
+- [X] No tablet, mostrar 2 colunas
+- [X] O projeto destaque (`span 2`) deve ocupar 1 coluna no mobile
 
 **4. Tipografia Responsiva:**
 - [ ] Títulos (`h1`, `h2`) devem ser menores no mobile
