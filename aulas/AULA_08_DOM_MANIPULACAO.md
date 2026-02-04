@@ -281,13 +281,13 @@ Adicionar interatividade ao seu portfólio usando DOM e eventos.
 - [X] (Bônus) Adicione a saudação em algum lugar visível do site
 
 **2. Links da Navegação:**
-- [ ] Selecione todos os links do `nav` usando `querySelectorAll`
-- [ ] Adicione um evento de clique que mostra no console qual link foi clicado
+- [X] Selecione todos os links do `nav` usando `querySelectorAll`
+- [X] Adicione um evento de clique que mostra no console qual link foi clicado
 
 **3. Cards Interativos:**
-- [ ] Selecione os cards de projetos ou habilidades
-- [ ] Adicione efeito de hover que muda a aparência (scale, shadow, etc.)
-- [ ] Use `classList.add()` e `classList.remove()` ao invés de `style` diretamente
+- [X] Selecione os cards de projetos ou habilidades
+- [X] Adicione efeito de hover que muda a aparência (scale, shadow, etc.)
+- [X] Use `classList.add()` e `classList.remove()` ao invés de `style` diretamente
 
 **4. Ano Automático no Footer:**
 - [ ] Selecione o elemento do footer que contém o ano
