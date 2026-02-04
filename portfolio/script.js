@@ -1,10 +1,28 @@
-function verificarMaiorIdade(idade) {
-    if (idade >= 18) {
-        console.log("Maior de idade");
+const agora = new Date();
+
+const hora = agora.getHours();
+
+function saudacao(hora) {
+    if (hora < 12) {
+        return ("Bom dia!");
+    }
+    else if (hora > 12 && hora < 18) {
+        return ("Boa tarde!");
     }
     else {
-        console.log("Menor de idade");
+        return ("Boa noite!");
     }
 }
 
-verificarMaiorIdade(1);
+const saudarIntroducao = document.querySelector("#introdução");
+
+saudarIntroducao.innerHTML += `<p>${saudacao(hora)}</p>`;
+
+const linksNav = document.querySelectorAll("nav a");
+
+linksNav.forEach((link) => {
+    link.addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("nav link clickado!");
+    });
+});
