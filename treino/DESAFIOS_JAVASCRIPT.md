@@ -15,11 +15,11 @@ Estes desafios são baseados no que você aprendeu nas **Aulas 07 e 08**. Comple
 ## 🟢 Nível Fácil - Fundamentos
 
 ### Desafio 1: Variáveis e Console
-- [ ] Crie uma constante `meuNome` com seu nome
-- [ ] Crie uma constante `anoNascimento` com seu ano de nascimento
-- [ ] Crie uma variável `idadeAtual` calculada (2026 - anoNascimento)
-- [ ] Use `console.log()` para mostrar: "Olá, [nome]! Você tem [idade] anos."
-- [ ] Use **template literals** (crase ``) para a mensagem
+- [X] Crie uma constante `meuNome` com seu nome
+- [X] Crie uma constante `anoNascimento` com seu ano de nascimento
+- [X] Crie uma variável `idadeAtual` calculada (2026 - anoNascimento)
+- [X] Use `console.log()` para mostrar: "Olá, [nome]! Você tem [idade] anos."
+- [X] Use **template literals** (crase ``) para a mensagem
 
 ```javascript
 // Exemplo esperado no console:
@@ -29,9 +29,9 @@ Estes desafios são baseados no que você aprendeu nas **Aulas 07 e 08**. Comple
 ---
 
 ### Desafio 2: Array e Loop
-- [ ] Crie um array `minhasTecnologias` com pelo menos 6 tecnologias que você conhece
-- [ ] Use um loop `for...of` para mostrar cada tecnologia no console
-- [ ] Use `console.table()` para exibir o array como tabela
+- [X] Crie um array `minhasTecnologias` com pelo menos 6 tecnologias que você conhece
+- [X] Use um loop `for...of` para mostrar cada tecnologia no console
+- [X] Use `console.table()` para exibir o array como tabela
 
 ```javascript
 // Exemplo de saída:
@@ -44,9 +44,9 @@ Estes desafios são baseados no que você aprendeu nas **Aulas 07 e 08**. Comple
 ---
 
 ### Desafio 3: Função Simples
-- [ ] Crie uma função `dobrar(numero)` que retorna o dobro do número
-- [ ] Teste com os valores: 5, 10, 25
-- [ ] Mostre os resultados no console
+- [X] Crie uma função `dobrar(numero)` que retorna o dobro do número
+- [X] Teste com os valores: 5, 10, 25
+- [X] Mostre os resultados no console
 
 ```javascript
 // Exemplo:
@@ -56,10 +56,10 @@ Estes desafios são baseados no que você aprendeu nas **Aulas 07 e 08**. Comple
 ---
 
 ### Desafio 4: Condicional
-- [ ] Crie uma função `verificarParOuImpar(numero)` 
-- [ ] Deve retornar "Par" se o número for par, "Ímpar" se for ímpar
-- [ ] **Dica**: Use o operador `%` (resto da divisão)
-- [ ] Teste com: 4, 7, 10, 15
+- [X] Crie uma função `verificarParOuImpar(numero)` 
+- [X] Deve retornar "Par" se o número for par, "Ímpar" se for ímpar
+- [X] **Dica**: Use o operador `%` (resto da divisão)
+- [X] Teste com: 4, 7, 10, 15
 
 ```javascript
 // Exemplo:
@@ -72,9 +72,9 @@ Estes desafios são baseados no que você aprendeu nas **Aulas 07 e 08**. Comple
 ## 🟡 Nível Médio - DOM Básico
 
 ### Desafio 5: Selecionando Elementos
-- [ ] Selecione o `<h1>` da página de treino usando `querySelector`
-- [ ] Mostre o texto do `<h1>` no console usando `.textContent`
-- [ ] Conte quantos cards existem na página (use `querySelectorAll` e `.length`)
+- [X] Selecione o `<h1>` da página de treino usando `querySelector`
+- [X] Mostre o texto do `<h1>` no console usando `.textContent`
+- [X] Conte quantos cards existem na página (use `querySelectorAll` e `.length`)
 
 ```javascript
 // Exemplo:
@@ -85,27 +85,27 @@ Estes desafios são baseados no que você aprendeu nas **Aulas 07 e 08**. Comple
 ---
 
 ### Desafio 6: Alterando Texto
-- [ ] Selecione o elemento do footer com id `ano-footer`
-- [ ] Mude o texto para incluir seu nome: "© [ano] - [seu nome]"
-- [ ] Use `new Date().getFullYear()` para pegar o ano atual
+- [X] Selecione o elemento do footer com id `ano-footer`
+- [X] Mude o texto para incluir seu nome: "© [ano] - [seu nome]"
+- [X] Use `new Date().getFullYear()` para pegar o ano atual
 
 ---
 
 ### Desafio 7: Alterando Estilos
-- [ ] Selecione o primeiro card da página
-- [ ] Mude a cor do fundo para `#e6f3ff` (azul claro)
-- [ ] Mude a cor da borda esquerda para `#ff6b6b` (vermelho)
-- [ ] Use `.style.backgroundColor` e `.style.borderLeftColor`
+- [X] Selecione o primeiro card da página
+- [X] Mude a cor do fundo para `#e6f3ff` (azul claro)
+- [X] Mude a cor da borda esquerda para `#ff6b6b` (vermelho)
+- [X] Use `.style.backgroundColor` e `.style.borderLeftColor`
 
 ---
 
 ### Desafio 8: Manipulando Classes
-- [ ] Crie uma classe CSS chamada `.destaque-amarelo` com:
+- [X] Crie uma classe CSS chamada `.destaque-amarelo` com:
   - `background-color: #fff3cd`
   - `border-left-color: #ffc107`
-- [ ] Selecione todos os cards com `.querySelectorAll`
-- [ ] Use um loop para adicionar a classe `.destaque-amarelo` ao 2º e 4º cards
-- [ ] **Dica**: Lembre que arrays começam no índice 0!
+- [X] Selecione todos os cards com `.querySelectorAll`
+- [X] Use um loop para adicionar a classe `.destaque-amarelo` ao 2º e 4º cards
+- [X] **Dica**: Lembre que arrays começam no índice 0!
 
 ---
 

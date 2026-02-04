@@ -3,9 +3,9 @@
 // ========================================
 
 // 1. ANO AUTOMÁTICO NO FOOTER
-const footerAno = document.querySelector('#ano-footer');
-const anoAtual = new Date().getFullYear();
-footerAno.textContent = `© ${anoAtual} - Gabriel de Angelis`;
+//const footerAno = document.querySelector('#ano-footer');
+//const anoAtualizado = new Date().getFullYear();
+//footerAno.textContent = `© ${anoAtualizado} - Gabriel de Angelis`;
 
 // 2. SAUDAÇÃO DINÂMICA
 function getSaudacao() {
@@ -49,6 +49,6 @@ const secoes = document.querySelectorAll('section');
 console.log(`Esta página tem ${secoes.length} seções de conteúdo.`);
 
 // 6. ARRAY DE TECNOLOGIAS
-const tecnologias = ['HTML', 'CSS', 'JavaScript', 'Flexbox', 'Grid', 'DOM'];
+const tecnologiass = ['HTML', 'CSS', 'JavaScript', 'Flexbox', 'Grid', 'DOM'];
 console.log('Tecnologias estudadas:');
-console.table(tecnologias);
+console.table(tecnologiass);
