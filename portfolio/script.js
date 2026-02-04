@@ -52,3 +52,9 @@ projetos.forEach((projeto) => {
         projeto.classList.remove("ativo");
     });
 });
+
+
+const footerCopyright = document.querySelector("#copyright");
+const anoAtual = new Date().getFullYear();
+
+footerCopyright.textContent += `${anoAtual}.`;

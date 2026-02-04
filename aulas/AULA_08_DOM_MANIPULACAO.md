@@ -290,8 +290,8 @@ Adicionar interatividade ao seu portfólio usando DOM e eventos.
 - [X] Use `classList.add()` e `classList.remove()` ao invés de `style` diretamente
 
 **4. Ano Automático no Footer:**
-- [ ] Selecione o elemento do footer que contém o ano
-- [ ] Use JavaScript para inserir o ano atual automaticamente
+- [X] Selecione o elemento do footer que contém o ano
+- [X] Use JavaScript para inserir o ano atual automaticamente
 
 ---
 

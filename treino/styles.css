@@ -1,0 +1,384 @@
+/* ========================================
+   RESET E ESTILOS BASE
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitulo {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   NAVEGAÇÃO (Flexbox!)
+   ======================================== */
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+nav a {
+    color: #ffd700;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+nav a:hover {
+    background: #ffd700;
+    color: #1a1a2e;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   MAIN E SEÇÕES
+   ======================================== */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+section h2 {
+    color: #1a1a2e;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #667eea;
+    font-size: 1.5rem;
+}
+
+/* ========================================
+   CARDS (usando Grid!)
+   ======================================== */
+
+section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+section h2 {
+    grid-column: 1 / -1;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-destaque {
+    border-left-color: #ffd700;
+    background: linear-gradient(135deg, #fff 0%, #fffef0 100%);
+}
+
+.card h3 {
+    color: #1a1a2e;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.card h4 {
+    color: #667eea;
+    margin: 1rem 0 0.5rem;
+    font-size: 0.95rem;
+}
+
+.card p {
+    margin-bottom: 0.75rem;
+}
+
+.card ul {
+    margin-left: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.card li {
+    margin-bottom: 0.3rem;
+}
+
+/* ========================================
+   CÓDIGO
+   ======================================== */
+
+code {
+    background: #e8e8e8;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.85em;
+    color: #d63384;
+}
+
+pre {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 0.75rem 0;
+}
+
+pre code {
+    background: none;
+    color: #90EE90;
+    padding: 0;
+}
+
+/* ========================================
+   TABELAS
+   ======================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #667eea;
+    color: white;
+}
+
+tr:hover {
+    background: #f5f5f5;
+}
+
+/* ========================================
+   BOX MODEL DEMO
+   ======================================== */
+
+.box-model-demo {
+    margin: 1rem 0;
+}
+
+.box-margin {
+    background: #ff9999;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+.box-padding {
+    background: #99ff99;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 6px;
+}
+
+.box-content {
+    background: #9999ff;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 4px;
+    color: white;
+}
+
+/* ========================================
+   FLEX DEMO
+   ======================================== */
+
+.flex-demo {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background: #f0f0f0;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.75rem 0;
+}
+
+.flex-item {
+    background: #667eea;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.demo-label {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+    background: #1a1a2e;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid #ffd700;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    background: #ffd700;
+    color: #1a1a2e;
+}
+
+/* ========================================
+   RESPONSIVIDADE (Media Queries!)
+   ======================================== */
+
+/* Tablet: 768px ou mais */
+@media (min-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    nav {
+        gap: 1rem;
+    }
+
+    nav a {
+        padding: 0.6rem 1.5rem;
+    }
+
+    section {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .card-destaque {
+        grid-column: span 2;
+    }
+}
+
+/* Desktop: 1024px ou mais */
+@media (min-width: 1024px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    section {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 2rem;
+    }
+
+    .card-destaque {
+        grid-column: span 3;
+    }
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}

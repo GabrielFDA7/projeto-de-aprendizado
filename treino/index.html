@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de Web Development - Gabriel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- HEADER: Usando HTML semântico -->
+    <header id="topo">
+        <h1>📚 Meu Resumo de Estudos</h1>
+        <p class="subtitulo">Tudo que aprendi nas 8 aulas de Web Development</p>
+
+        <!-- NAV: Navegação com links âncora -->
+        <nav>
+            <a href="#html">HTML</a>
+            <a href="#css">CSS</a>
+            <a href="#layout">Layout</a>
+            <a href="#responsivo">Responsivo</a>
+            <a href="#javascript">JavaScript</a>
+        </nav>
+    </header>
+
+    <!-- MAIN: Conteúdo principal -->
+    <main>
+        <!-- SEÇÃO HTML -->
+        <section id="html">
+            <h2>🏗️ HTML - Estrutura e Semântica</h2>
+
+            <article class="card">
+                <h3>Estrutura Básica</h3>
+                <p>Todo arquivo HTML começa com:</p>
+                <ul>
+                    <li><code>&lt;!DOCTYPE html&gt;</code> - Declara HTML5</li>
+                    <li><code>&lt;html lang="pt-BR"&gt;</code> - Elemento raiz com idioma</li>
+                    <li><code>&lt;head&gt;</code> - Metadados (invisíveis)</li>
+                    <li><code>&lt;body&gt;</code> - Conteúdo visível</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Tags de Texto</h3>
+                <ul>
+                    <li><code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code> - Títulos (apenas 1 h1 por página!)</li>
+                    <li><code>&lt;p&gt;</code> - Parágrafos</li>
+                    <li><code>&lt;strong&gt;</code> - Texto em <strong>negrito</strong></li>
+                    <li><code>&lt;em&gt;</code> - Texto em <em>itálico</em></li>
+                    <li><code>&lt;br&gt;</code> - Quebra de linha</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Tags Semânticas</h3>
+                <p>Dão <strong>significado</strong> ao conteúdo:</p>
+                <ul>
+                    <li><code>&lt;header&gt;</code> - Cabeçalho</li>
+                    <li><code>&lt;nav&gt;</code> - Navegação</li>
+                    <li><code>&lt;main&gt;</code> - Conteúdo principal (só 1 por página!)</li>
+                    <li><code>&lt;section&gt;</code> - Seção temática</li>
+                    <li><code>&lt;article&gt;</code> - Conteúdo independente</li>
+                    <li><code>&lt;footer&gt;</code> - Rodapé</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Links e Atributos</h3>
+                <ul>
+                    <li><code>id="nome"</code> - Identificador único</li>
+                    <li><code>href="#id"</code> - Link âncora (rola para seção)</li>
+                    <li><code>target="_blank"</code> - Abre em nova aba</li>
+                    <li><code>mailto:</code> - Link de e-mail</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- SEÇÃO CSS -->
+        <section id="css">
+            <h2>🎨 CSS - Fundamentos</h2>
+
+            <article class="card">
+                <h3>Sintaxe CSS</h3>
+                <pre><code>seletor {
+    propriedade: valor;
+}</code></pre>
+                <p>Lembre-se: <strong>ponto e vírgula</strong> no final!</p>
+            </article>
+
+            <article class="card">
+                <h3>Seletores</h3>
+                <ul>
+                    <li><code>elemento</code> - Seleciona todas as tags (ex: <code>p</code>)</li>
+                    <li><code>.classe</code> - Seleciona por classe (reutilizável)</li>
+                    <li><code>#id</code> - Seleciona por ID (único)</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Cores</h3>
+                <ul>
+                    <li><code>color</code> - Cor do texto</li>
+                    <li><code>background-color</code> - Cor de fundo</li>
+                </ul>
+                <p>Formatos: <code>red</code>, <code>#FF0000</code>, <code>rgb(255, 0, 0)</code></p>
+            </article>
+
+            <article class="card">
+                <h3>Box Model</h3>
+                <div class="box-model-demo">
+                    <div class="box-margin">MARGIN
+                        <div class="box-padding">PADDING
+                            <div class="box-content">CONTEÚDO</div>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li><code>margin</code> - Espaço FORA do elemento</li>
+                    <li><code>padding</code> - Espaço DENTRO do elemento</li>
+                    <li><code>border</code> - Borda entre margin e padding</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Texto e Fontes</h3>
+                <ul>
+                    <li><code>font-size</code> - Tamanho da fonte</li>
+                    <li><code>font-weight</code> - Peso (bold, normal, 100-900)</li>
+                    <li><code>font-family</code> - Família da fonte</li>
+                    <li><code>text-align</code> - Alinhamento (left, center, right)</li>
+                    <li><code>line-height</code> - Espaço entre linhas</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- SEÇÃO LAYOUT -->
+        <section id="layout">
+            <h2>📐 Layout - Flexbox e Grid</h2>
+
+            <article class="card card-destaque">
+                <h3>Flexbox (1 Dimensão)</h3>
+                <p>Perfeito para: navbars, cards em linha, centralização.</p>
+
+                <h4>Container (pai):</h4>
+                <ul>
+                    <li><code>display: flex</code> - Ativa Flexbox</li>
+                    <li><code>flex-direction: row | column</code> - Direção</li>
+                    <li><code>justify-content</code> - Alinha no eixo principal</li>
+                    <li><code>align-items</code> - Alinha no eixo cruzado</li>
+                    <li><code>gap</code> - Espaço entre itens</li>
+                </ul>
+
+                <h4>Valores de justify-content:</h4>
+                <div class="flex-demo">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+                <p class="demo-label">flex-start | center | flex-end | space-between | space-around | space-evenly</p>
+            </article>
+
+            <article class="card card-destaque">
+                <h3>Grid (2 Dimensões)</h3>
+                <p>Perfeito para: layouts de página, galerias, estruturas complexas.</p>
+
+                <h4>Container (pai):</h4>
+                <ul>
+                    <li><code>display: grid</code> - Ativa Grid</li>
+                    <li><code>grid-template-columns</code> - Define colunas</li>
+                    <li><code>grid-template-rows</code> - Define linhas</li>
+                    <li><code>gap</code> - Espaço entre células</li>
+                </ul>
+
+                <h4>Exemplo responsivo mágico:</h4>
+                <pre><code>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</code></pre>
+
+                <h4>Items (filhos):</h4>
+                <ul>
+                    <li><code>grid-column: span 2</code> - Ocupa 2 colunas</li>
+                    <li><code>grid-row: span 2</code> - Ocupa 2 linhas</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Flexbox vs Grid</h3>
+                <table>
+                    <tr>
+                        <th>Flexbox</th>
+                        <th>Grid</th>
+                    </tr>
+                    <tr>
+                        <td>1 dimensão (linha OU coluna)</td>
+                        <td>2 dimensões (linhas E colunas)</td>
+                    </tr>
+                    <tr>
+                        <td>Elementos em sequência</td>
+                        <td>Layout estruturado</td>
+                    </tr>
+                    <tr>
+                        <td>Navbars, cards em linha</td>
+                        <td>Páginas inteiras, galerias</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <!-- SEÇÃO RESPONSIVO -->
+        <section id="responsivo">
+            <h2>📱 CSS Responsivo - Media Queries</h2>
+
+            <article class="card">
+                <h3>Sintaxe</h3>
+                <pre><code>/* Mobile First - estilos base para mobile */
+.elemento { ... }
+
+/* Tablet: 768px ou mais */
+@media (min-width: 768px) {
+    .elemento { ... }
+}
+
+/* Desktop: 1024px ou mais */
+@media (min-width: 1024px) {
+    .elemento { ... }
+}</code></pre>
+            </article>
+
+            <article class="card">
+                <h3>Breakpoints Comuns</h3>
+                <table>
+                    <tr>
+                        <th>Dispositivo</th>
+                        <th>Tamanho</th>
+                    </tr>
+                    <tr>
+                        <td>Mobile</td>
+                        <td>&lt; 768px</td>
+                    </tr>
+                    <tr>
+                        <td>Tablet</td>
+                        <td>768px - 1023px</td>
+                    </tr>
+                    <tr>
+                        <td>Desktop</td>
+                        <td>1024px - 1439px</td>
+                    </tr>
+                    <tr>
+                        <td>Large Desktop</td>
+                        <td>≥ 1440px</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article class="card">
+                <h3>Dicas Mobile-First</h3>
+                <ul>
+                    <li>Comece com CSS para mobile (sem media query)</li>
+                    <li>Use <code>min-width</code> para adicionar estilos em telas maiores</li>
+                    <li>Media queries devem estar em ordem <strong>crescente</strong></li>
+                    <li>Meta tag <code>viewport</code> é OBRIGATÓRIA!</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- SEÇÃO JAVASCRIPT -->
+        <section id="javascript">
+            <h2>🟨 JavaScript - Fundamentos e DOM</h2>
+
+            <article class="card">
+                <h3>Variáveis</h3>
+                <pre><code>const nome = "Gabriel";  // Constante (não muda)
+let idade = 22;          // Variável (pode mudar)
+// NÃO use var (antigo)</code></pre>
+            </article>
+
+            <article class="card">
+                <h3>Tipos de Dados</h3>
+                <ul>
+                    <li><code>String</code> - Texto: <code>"Olá"</code></li>
+                    <li><code>Number</code> - Número: <code>42</code></li>
+                    <li><code>Boolean</code> - Verdadeiro/Falso: <code>true</code></li>
+                    <li><code>Array</code> - Lista: <code>["HTML", "CSS", "JS"]</code></li>
+                    <li><code>Object</code> - Objeto: <code>{ nome: "Gabriel", idade: 22 }</code></li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Funções</h3>
+                <pre><code>function saudacao(nome) {
+    return `Olá, ${nome}!`;
+}
+
+// Arrow function (moderno)
+const soma = (a, b) => a + b;</code></pre>
+            </article>
+
+            <article class="card">
+                <h3>Condicionais</h3>
+                <pre><code>if (idade >= 18) {
+    console.log("Maior de idade");
+} else {
+    console.log("Menor de idade");
+}</code></pre>
+            </article>
+
+            <article class="card">
+                <h3>Loops</h3>
+                <pre><code>// For tradicional
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+// For...of (arrays)
+for (const item of array) {
+    console.log(item);
+}</code></pre>
+            </article>
+
+            <article class="card card-destaque">
+                <h3>DOM - Selecionando Elementos</h3>
+                <pre><code>// Seleciona 1 elemento
+const titulo = document.querySelector("h1");
+const meuId = document.querySelector("#meu-id");
+const classe = document.querySelector(".classe");
+
+// Seleciona TODOS
+const links = document.querySelectorAll("nav a");</code></pre>
+            </article>
+
+            <article class="card card-destaque">
+                <h3>DOM - Manipulando Elementos</h3>
+                <pre><code>// Texto
+elemento.textContent = "Novo texto";
+
+// HTML
+elemento.innerHTML = "&lt;b&gt;Bold&lt;/b&gt;";
+
+// CSS inline
+elemento.style.color = "red";
+elemento.style.fontSize = "20px";  // camelCase!
+
+// Classes
+elemento.classList.add("ativo");
+elemento.classList.remove("ativo");
+elemento.classList.toggle("ativo");</code></pre>
+            </article>
+
+            <article class="card card-destaque">
+                <h3>DOM - Eventos</h3>
+                <pre><code>// Estrutura
+elemento.addEventListener("evento", callback);
+
+// Exemplo - Clique
+botao.addEventListener("click", () => {
+    console.log("Clicou!");
+});
+
+// Eventos comuns:
+// click, mouseover, mouseout, keydown, submit, load</code></pre>
+            </article>
+
+            <article class="card">
+                <h3>Template Literals</h3>
+                <pre><code>const nome = "Gabriel";
+const idade = 22;
+
+// Use crase ` e ${variável}
+console.log(`Olá, ${nome}! Você tem ${idade} anos.`);</code></pre>
+            </article>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>📚 Material de Estudo - Web Development</p>
+        <p id="ano-footer"></p>
+        <a href="#topo">⬆️ Voltar ao Topo</a>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="desafios.js"></script>
+</body>
+
+</html>
