@@ -85,7 +85,7 @@ botaoFooter.addEventListener("click", () => {
 
 let contadorCliques = 0;
 
-document.addEventListener("click", ()=> {
+document.addEventListener("click", () => {
     contadorCliques++;
     console.log(contadorCliques);
 
@@ -93,3 +93,19 @@ document.addEventListener("click", ()=> {
         alert("Você clicou 10 vezes!");
     }
 });
+
+const tarefas = ['Aprender HTML', 'Aprender CSS', 'Aprender JS'];
+
+function mostrarTarefas(tarefas) {
+    const listaTarefas = document.querySelector("#lista-tarefas");
+    listaTarefas.innerHTML = "";
+    for (const tarefa of tarefas) {
+        listaTarefas.innerHTML += `<ul><li>${tarefa}</li></ul>`;
+    }
+}
+
+function adicionarTarefas(texto) {
+
+}
+
+mostrarTarefas(tarefas);

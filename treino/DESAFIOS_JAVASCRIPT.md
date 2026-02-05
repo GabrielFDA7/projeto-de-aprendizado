@@ -160,12 +160,12 @@ botao.addEventListener("click", () => {
 ### Desafio 13: Lista de Tarefas Simples
 Crie uma mini lista de tarefas usando só o que você aprendeu:
 
-- [ ] Crie um array `tarefas` com 3 tarefas iniciais
-- [ ] Crie uma função `mostrarTarefas()` que:
+- [X] Crie um array `tarefas` com 3 tarefas iniciais
+- [X] Crie uma função `mostrarTarefas()` que:
   - Seleciona um elemento da página (pode criar um `<div id="lista-tarefas">`)
   - Limpa o `innerHTML`
   - Usa um loop para adicionar cada tarefa como `<p>`
-- [ ] Crie uma função `adicionarTarefa(texto)` que:
+- [] Crie uma função `adicionarTarefa(texto)` que:
   - Adiciona o texto ao array `tarefas`
   - Chama `mostrarTarefas()` para atualizar a tela
 - [ ] Teste adicionando tarefas pelo console
