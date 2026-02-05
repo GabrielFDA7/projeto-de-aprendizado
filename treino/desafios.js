@@ -8,9 +8,9 @@ console.log(`Olá, ${meuNome}, o ano é ${anoAtual} e você tem ${idadeAtual} an
 console.log(``);
 console.log(`Essas são as tecnologias que você sabe:`);
 
-const tecnologias = ['VBA','Python','JavaScript','HTML','CSS','C#'];
+const tecnologias = ['VBA', 'Python', 'JavaScript', 'HTML', 'CSS', 'C#'];
 
-for (const tecnologia of tecnologias){
+for (const tecnologia of tecnologias) {
     console.log(tecnologia);
 }
 
@@ -28,10 +28,10 @@ dobrarNumero(10);
 
 function verificarParOuImpar(numero) {
     let verificador = (numero % 2);
-    if (verificador === 0){
+    if (verificador === 0) {
         return `Número ${numero} é par.`;
     }
-    else{
+    else {
         return `Número ${numero} é impar.`;
     }
 }
@@ -66,3 +66,30 @@ primeiroCard.style.borderLeftColor = "#ff6b6b";
 
 cartoes[1].classList.add("destaque-amarelo");
 cartoes[3].classList.add("destaque-amarelo");
+
+const links = document.querySelectorAll("nav a");
+
+links.forEach((link) => {
+    link.addEventListener("click", () => {
+        link.classList.add("nav-clicado");
+    });
+});
+
+const bodyTheme = document.querySelector("body");
+
+const botaoFooter = document.querySelector("#btn-tema");
+
+botaoFooter.addEventListener("click", () => {
+    bodyTheme.classList.toggle("modo-escuro");
+})
+
+let contadorCliques = 0;
+
+document.addEventListener("click", ()=> {
+    contadorCliques++;
+    console.log(contadorCliques);
+
+    if (contadorCliques === 10) {
+        alert("Você clicou 10 vezes!");
+    }
+});

@@ -112,21 +112,21 @@ Estes desafios são baseados no que você aprendeu nas **Aulas 07 e 08**. Comple
 ## 🔴 Nível Difícil - DOM e Eventos
 
 ### Desafio 9: Evento de Clique
-- [ ] Selecione TODOS os links do nav
-- [ ] Adicione um evento de clique que:
+- [X] Selecione TODOS os links do nav
+- [X] Adicione um evento de clique que:
   - Muda a cor de fundo do link clicado para branco
   - Muda a cor do texto para `#1a1a2e`
-- [ ] Use `.forEach()` para adicionar o evento em todos os links
+- [X] Use `.forEach()` para adicionar o evento em todos os links
 
 ---
 
 ### Desafio 10: Toggle de Classe
-- [ ] Crie um botão "Modo Escuro" no footer (pode adicionar via HTML ou JS)
-- [ ] Ao clicar, deve alternar uma classe `modo-escuro` no `<body>`
-- [ ] Crie estilos CSS para `.modo-escuro`:
+- [X] Crie um botão "Modo Escuro" no footer (pode adicionar via HTML ou JS)
+- [X] Ao clicar, deve alternar uma classe `modo-escuro` no `<body>`
+- [X] Crie estilos CSS para `.modo-escuro`:
   - `background: #1a1a2e`
   - `color: white`
-- [ ] Use `.classList.toggle()` para alternar
+- [X] Use `.classList.toggle()` para alternar
 
 ```javascript
 // Exemplo de estrutura:
@@ -138,10 +138,10 @@ botao.addEventListener("click", () => {
 ---
 
 ### Desafio 11: Contador de Cliques
-- [ ] Crie uma variável `contadorCliques` iniciando em 0
-- [ ] Adicione um evento de clique em toda a página (`document`)
-- [ ] A cada clique, incremente o contador e mostre no console
-- [ ] Quando chegar a 10 cliques, mostre "Você clicou 10 vezes! 🎉"
+- [X] Crie uma variável `contadorCliques` iniciando em 0
+- [X] Adicione um evento de clique em toda a página (`document`)
+- [X] A cada clique, incremente o contador e mostre no console
+- [X] Quando chegar a 10 cliques, mostre "Você clicou 10 vezes! 🎉"
 
 ---
 

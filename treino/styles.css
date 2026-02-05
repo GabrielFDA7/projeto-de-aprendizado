@@ -16,6 +16,11 @@ body {
     min-height: 100vh;
 }
 
+.modo-escuro {
+    background-color: #1a1a2e;
+    color: white;
+}
+
 /* ========================================
    HEADER
    ======================================== */
@@ -62,6 +67,11 @@ nav a {
     background: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     font-weight: 500;
+}
+
+nav a.nav-clicado {
+    background-color: white !important;
+    color: #1a1a2e !important;
 }
 
 nav a:hover {
@@ -302,6 +312,12 @@ footer a {
     transition: all 0.3s ease;
 }
 
+footer button {
+    display: flex;
+    justify-self: center;
+    margin-top: 20px;
+}
+
 footer a:hover {
     background: #ffd700;
     color: #1a1a2e;
@@ -386,4 +402,30 @@ section {
 /* Scroll suave */
 html {
     scroll-behavior: smooth;
+}
+
+/* ========================================
+   MODO ESCURO
+   ======================================== */
+
+body.modo-escuro {
+    background: #1a1a2e;
+}
+
+body.modo-escuro section {
+    background: #2d2d44;
+    color: white;
+}
+
+body.modo-escuro .card {
+    background: #3d3d5c;
+    color: white;
+}
+
+body.modo-escuro section h2 {
+    color: white;
+}
+
+body.modo-escuro .card h3 {
+    color: #ffd700;
 }
