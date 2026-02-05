@@ -146,12 +146,12 @@ botao.addEventListener("click", () => {
 ---
 
 ### Desafio 12: Saudação Dinâmica Avançada
-- [ ] Crie uma função `getSaudacaoCompleta()` que retorna:
+- [X] Crie uma função `getSaudacaoCompleta()` que retorna:
   - "☀️ Bom dia! Hora de codar!" (5h às 11h)
   - "🌤️ Boa tarde! Continue focado!" (12h às 17h)
   - "🌙 Boa noite! Não se esforce demais!" (18h às 4h)
-- [ ] Use `new Date().getHours()` para pegar a hora atual
-- [ ] Adicione a saudação como texto no subtítulo do header
+- [X] Use `new Date().getHours()` para pegar a hora atual
+- [X] Adicione a saudação como texto no subtítulo do header
 
 ---
 
@@ -165,10 +165,10 @@ Crie uma mini lista de tarefas usando só o que você aprendeu:
   - Seleciona um elemento da página (pode criar um `<div id="lista-tarefas">`)
   - Limpa o `innerHTML`
   - Usa um loop para adicionar cada tarefa como `<p>`
-- [] Crie uma função `adicionarTarefa(texto)` que:
+- [X] Crie uma função `adicionarTarefa(texto)` que:
   - Adiciona o texto ao array `tarefas`
   - Chama `mostrarTarefas()` para atualizar a tela
-- [ ] Teste adicionando tarefas pelo console
+- [X] Teste adicionando tarefas pelo console
 
 ```javascript
 // Exemplo de uso:

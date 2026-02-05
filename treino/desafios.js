@@ -1,6 +1,7 @@
 const meuNome = "Gabriel Faria de Angelis";
 const anoNascimento = 2003;
 const anoAtual = new Date().getFullYear();
+const horaAtual = new Date().getHours();
 
 let idadeAtual = anoAtual - anoNascimento;
 
@@ -105,7 +106,25 @@ function mostrarTarefas(tarefas) {
 }
 
 function adicionarTarefas(texto) {
-
+    tarefas.push(texto);
 }
 
 mostrarTarefas(tarefas);
+
+adicionarTarefas("Banana");
+
+mostrarTarefas(tarefas);
+
+function getSaudacaoCompleta() {
+    if (horaAtual > 5 && horaAtual < 12){
+        return("☀️ Bom dia! Hora de codar!");
+    }
+    else if (horaAtual >= 12 && horaAtual < 18) {
+        return ("🌤️ Boa tarde! Continue focado!");
+    }
+    else {
+        return ("🌙 Boa noite! Não se esforce demais!")
+    }
+}
+
+document.querySelector(".saudacao").textContent += `${getSaudacaoCompleta()}`;
