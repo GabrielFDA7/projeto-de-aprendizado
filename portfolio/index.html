@@ -144,6 +144,26 @@
             <p>Também posso ser encontrado no LinkedIn: <a href="https://www.linkedin.com/in/gabriel-de-angelis"
                     target="_blank">Gabriel de Angelis</a></p>
             <p>Ou no GitHub: <a href="https://github.com/GabrielFDA7" target="_blank">GabrielFDA7</a></p>
+            <form id="contato-form">
+                <label>
+                    Seu nome completo
+                    <input type="text" name="nome" placeholder="Ex: Gabriel Faria de Angelis" required>
+                    <span class="erro-msg" name="erro-nome"></span>
+                </label>
+                <label>
+                    Seu e-mail
+                    <input type="email" name="email" placeholder="Ex: gabriel@gmail.com" required>
+                    <span class="erro-msg" nome="erro-email"></span>
+                </label>
+                <label>
+                    Escreva sua mensagem:
+                    <input type="textarea" name="mensagem" requiered>
+                    <span class="erro-msg" name="erro-mensagem"></span>
+                </label>
+                <button type="submit">
+                    <p><strong>Enviar mensagem</strong></p>
+                </button>
+                <div class="sucesso hidden" id="mensagem sucesso"></div>
         </section>
 
     </main>
