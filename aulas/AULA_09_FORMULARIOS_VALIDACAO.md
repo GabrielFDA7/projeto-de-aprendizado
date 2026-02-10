@@ -391,13 +391,13 @@ Criar um formulário de contato completo com validação JavaScript.
 - [X] Spans para mensagens de erro abaixo de cada campo
 
 **CSS - Estilização:**
-- [ ] Estilizar inputs com estados normal, erro e válido
-- [ ] Adicionar classe `.erro` com borda vermelha
-- [ ] Adicionar classe `.valido` com borda verde (opcional)
-- [ ] Estilizar mensagem de sucesso
+- [X] Estilizar inputs com estados normal, erro e válido
+- [X] Adicionar classe `.erro` com borda vermelha
+- [X] Adicionar classe `.valido` com borda verde (opcional)
+- [X] Estilizar mensagem de sucesso
 
 **JavaScript - Validação:**
-- [ ] Capturar evento `submit` e usar `preventDefault()`
+- [X] Capturar evento `submit` e usar `preventDefault()`
 - [ ] Validar nome: não vazio, mínimo 3 caracteres
 - [ ] Validar email: não vazio, formato válido
 - [ ] Validar mensagem: não vazia

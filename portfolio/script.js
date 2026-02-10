@@ -58,3 +58,22 @@ const footerCopyright = document.querySelector("#copyright");
 const anoAtual = new Date().getFullYear();
 
 footerCopyright.textContent += `${anoAtual}.`;
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    limparErros();
+
+    const nome = document.querySelector("#nome");
+    const email = document.querySelector("#e-mail");
+
+    if (nome.trim() === "") {
+        nome.classList.add()
+    }
+
+
+})
+
+})
