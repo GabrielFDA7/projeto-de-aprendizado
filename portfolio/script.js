@@ -61,19 +61,53 @@ footerCopyright.textContent += `${anoAtual}.`;
 
 const form = document.querySelector("form");
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    
-    limparErros();
+const nomeInput = document.querySelector("#nome");
+const emailInput = document.querySelector("#e-mail");
+const erroMsg = document.querySelector(".erro-msg");
+const sucessoMsg = document.querySelector(".sucesso-msg");
 
-    const nome = document.querySelector("#nome");
-    const email = document.querySelector("#e-mail");
+function validarNome() {
+    const nome = nomeInput.value;
 
     if (nome.trim() === "") {
-        nome.classList.add()
+        nomeInput.classList.add("erro");
+        erroMsg.textContent = "Por favor, insira um nome.";
     }
+    else if (nome.length < 3) {
+        nomeInput.classList.add("erro");
+        erroMsg.textContent = "Por favor, insira um nome com pelo menos 3 caracteres.";
+    }
+    else {
+        nomeInput.classList.remove("erro");
+        erroMsg.textContent = "";
+    }
+}
 
+function validarEmail() {
+    const email = emailInput.value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const resultadoEmail = emailRegex.test(email);
+    if (!resultadoEmail) {
+        emailInput.classList.add("erro");
+        erroMsg.textContent = "Por favor, insira um email válido.";
+    }
+    else {
+        emailInput.classList.remove("erro");
+        erroMsg.textContent = "";
+    }
+}
 
-})
-
-})
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    validarNome();
+    validarEmail();
+    if (nomeInput.classList.contains("erro") || emailInput.classList.contains("erro")) {
+        return;
+    }
+    else {
+        sucessoMsg.classList.remove("hidden");
+        setTimeout(() => {
+            sucessoMsg.classList.add("hidden");
+        }, 3000);
+    }
+});

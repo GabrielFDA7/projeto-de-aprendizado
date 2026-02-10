@@ -165,6 +165,10 @@ input.sucesso {
     margin-top: 0.25rem;
 }
 
+.sucesso-msg.hidden {
+    display: none;
+}
+
 button {
     border: none;
     background-color: #1a1a2e;

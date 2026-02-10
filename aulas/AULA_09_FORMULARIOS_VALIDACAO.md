@@ -246,6 +246,7 @@ input.valido {
 }
 
 .sucesso {
+    display: none;
     background: #d4edda;
     color: #155724;
     padding: 1rem;
@@ -398,11 +399,11 @@ Criar um formulário de contato completo com validação JavaScript.
 
 **JavaScript - Validação:**
 - [X] Capturar evento `submit` e usar `preventDefault()`
-- [ ] Validar nome: não vazio, mínimo 3 caracteres
-- [ ] Validar email: não vazio, formato válido
-- [ ] Validar mensagem: não vazia
-- [ ] Mostrar mensagens de erro específicas
-- [ ] Mostrar mensagem de sucesso se tudo válido
+- [X] Validar nome: não vazio, mínimo 3 caracteres
+- [X] Validar email: não vazio, formato válido
+- [X] Validar mensagem: não vazia
+- [X] Mostrar mensagens de erro específicas
+- [X] Mostrar mensagem de sucesso se tudo válido
 - [ ] Limpar formulário após sucesso com `.reset()`
 
 **Bônus:**
