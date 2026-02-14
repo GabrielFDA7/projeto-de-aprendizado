@@ -404,7 +404,7 @@ Criar um formulário de contato completo com validação JavaScript.
 - [X] Validar mensagem: não vazia
 - [X] Mostrar mensagens de erro específicas
 - [X] Mostrar mensagem de sucesso se tudo válido
-- [ ] Limpar formulário após sucesso com `.reset()`
+- [X] Limpar formulário após sucesso com `.reset()`
 
 **Bônus:**
 - [ ] Validação em tempo real (evento `input`)

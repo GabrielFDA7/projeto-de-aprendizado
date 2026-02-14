@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏋️ Treino de Formulários - Gabriel</title>
+    <link rel="icon" href="data:,">
+    <style>
+        /* ========================================
+           RESET E BASE
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0f0f1a;
+            min-height: 100vh;
+        }
+
+        /* ========================================
+           HEADER
+           ======================================== */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 3px solid #667eea;
+            box-shadow: 0 4px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+        }
+
+        .nivel-barra {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .nivel-barra span {
+            display: inline-block;
+            width: 40px;
+            height: 8px;
+            border-radius: 4px;
+            background: #2d2d44;
+            transition: background 0.5s ease;
+        }
+
+        .nivel-barra span.ativo {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.5);
+        }
+
+        /* ========================================
+           NAV
+           ======================================== */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: #1a1a2e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        nav a {
+            color: #ffd700;
+            text-decoration: none;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background: #ffd700;
+            color: #1a1a2e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* ========================================
+           MAIN
+           ======================================== */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        /* ========================================
+           DESAFIO CARD
+           ======================================== */
+        .desafio {
+            margin-bottom: 2.5rem;
+            background: #1a1a2e;
+            border-radius: 16px;
+            border: 1px solid #2d2d44;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .desafio:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+        }
+
+        .desafio-header {
+            background: linear-gradient(135deg, #16213e, #1a1a2e);
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid #2d2d44;
+        }
+
+        .desafio-numero {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .desafio-info h2 {
+            color: white;
+            font-size: 1.15rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .desafio-info .dificuldade {
+            font-size: 0.8rem;
+        }
+
+        .dificuldade.facil {
+            color: #4ecdc4;
+        }
+
+        .dificuldade.medio {
+            color: #ffd700;
+        }
+
+        .dificuldade.dificil {
+            color: #ff6b6b;
+        }
+
+        .desafio-body {
+            padding: 1.5rem;
+        }
+
+        .instrucoes {
+            background: #16213e;
+            padding: 1.25rem;
+            border-radius: 10px;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .instrucoes h3 {
+            color: #667eea;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .instrucoes p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .instrucoes ul {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-left: 1.25rem;
+        }
+
+        .instrucoes li {
+            margin-bottom: 0.3rem;
+        }
+
+        .instrucoes code {
+            background: #2d2d44;
+            color: #ffd700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.85em;
+        }
+
+        .dica {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #ffd700;
+        }
+
+        .dica::before {
+            content: '💡 Dica: ';
+            font-weight: bold;
+        }
+
+        /* ========================================
+           ÁREA DO FORMULÁRIO (onde o aluno pratica)
+           ======================================== */
+        .area-pratica {
+            background: #0f0f1a;
+            border: 2px dashed #2d2d44;
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 120px;
+            position: relative;
+        }
+
+        .area-pratica::before {
+            content: '👇 Sua área de prática';
+            display: block;
+            text-align: center;
+            color: #4a4a6a;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========================================
+           ESTILOS DOS FORMULÁRIOS
+           ======================================== */
+        .area-pratica form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .area-pratica .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .area-pratica label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .area-pratica input,
+        .area-pratica textarea,
+        .area-pratica select {
+            background: #1a1a2e;
+            border: 2px solid #2d2d44;
+            color: #e0e0e0;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .area-pratica input:focus,
+        .area-pratica textarea:focus,
+        .area-pratica select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+        }
+
+        .area-pratica input.erro,
+        .area-pratica textarea.erro {
+            border-color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.05);
+        }
+
+        .area-pratica input.valido,
+        .area-pratica textarea.valido {
+            border-color: #4ecdc4;
+            background: rgba(78, 205, 196, 0.05);
+        }
+
+        .area-pratica .erro-msg {
+            color: #ff6b6b;
+            font-size: 0.8rem;
+            min-height: 1.2em;
+        }
+
+        .area-pratica button[type="submit"],
+        .area-pratica .btn-enviar {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .area-pratica button[type="submit"]:hover,
+        .area-pratica .btn-enviar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .area-pratica .sucesso {
+            background: rgba(78, 205, 196, 0.1);
+            border: 1px solid #4ecdc4;
+            color: #4ecdc4;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .area-pratica .sucesso.visivel {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Resultado / Output */
+        .resultado {
+            background: #16213e;
+            border: 1px solid #2d2d44;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.85rem;
+            color: #90EE90;
+            min-height: 40px;
+            white-space: pre-wrap;
+        }
+
+        .resultado::before {
+            content: '> Output:';
+            display: block;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* Checkbox e Radio custom */
+        .area-pratica input[type="checkbox"],
+        .area-pratica input[type="radio"] {
+            width: auto;
+            accent-color: #667eea;
+        }
+
+        .opcoes-grupo {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .opcao-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Contador de caracteres */
+        .contador {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #4a4a6a;
+        }
+
+        .contador.alerta {
+            color: #ff6b6b;
+        }
+
+        /* Barra de força de senha */
+        .forca-senha {
+            height: 6px;
+            border-radius: 3px;
+            background: #2d2d44;
+            overflow: hidden;
+            margin-top: 0.3rem;
+        }
+
+        .forca-senha .barra {
+            height: 100%;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            width: 0%;
+        }
+
+        .forca-senha .barra.fraca {
+            width: 33%;
+            background: #ff6b6b;
+        }
+
+        .forca-senha .barra.media {
+            width: 66%;
+            background: #ffd700;
+        }
+
+        .forca-senha .barra.forte {
+            width: 100%;
+            background: #4ecdc4;
+        }
+
+        .forca-texto {
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background: #1a1a2e;
+            color: #a0a0a0;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-top: 1px solid #2d2d44;
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           ANIMAÇÕES
+           ======================================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .desafio {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ========================================
+           RESPONSIVIDADE
+           ======================================== */
+        @media (min-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            main {
+                padding: 2rem;
+            }
+
+            .desafio-body {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🏋️ Treino de Formulários</h1>
+        <p>7 desafios progressivos para dominar formulários HTML + validação JS</p>
+        <div class="nivel-barra">
+            <span class="ativo"></span>
+            <span class="ativo"></span>
+            <span class="ativo"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#desafio1">1. Básico</a>
+        <a href="#desafio2">2. Labels</a>
+        <a href="#desafio3">3. Captura</a>
+        <a href="#desafio4">4. Validação</a>
+        <a href="#desafio5">5. Feedback</a>
+        <a href="#desafio6">6. Senha</a>
+        <a href="#desafio7">7. Completo</a>
+    </nav>
+
+    <main>
+
+        <!-- ==========================================
+             DESAFIO 1 - ESTRUTURA BÁSICA
+             ========================================== -->
+        <section class="desafio" id="desafio1">
+            <div class="desafio-header">
+                <div class="desafio-numero">1</div>
+                <div class="desafio-info">
+                    <h2>Estrutura Básica do Formulário</h2>
+                    <span class="dificuldade facil">⭐ Fácil</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Crie um formulário simples de cadastro com os seguintes campos:</p>
+                    <ul>
+                        <li>Input de texto para <strong>Nome</strong> (com <code>placeholder</code>)</li>
+                        <li>Input de email para <strong>Email</strong></li>
+                        <li>Input de telefone para <strong>Telefone</strong></li>
+                        <li>Botão de <strong>Enviar</strong></li>
+                    </ul>
+                    <p>Use os atributos: <code>type</code>, <code>id</code>, <code>name</code>, <code>placeholder</code>
+                    </p>
+                    <div class="dica">Cada input precisa de <code>type</code>, <code>id</code> e <code>name</code>. O
+                        <code>name</code> é como os dados são identificados!
+                    </div>
+                </div>
+
+                <div class="area-pratica">
+                    <form id="form-cadastro">
+                        <label for="nome">Seu nome</label>
+                        <input type="text" name="nome" id="nome" placeholder="Ex: Gabriel de Angelis" required>
+                        <label for="email">Seu e-mail:</label>
+                        <input type="email" name="email" id="email" placeholder="Ex: gabriel@gmail.com" required>
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" name="telefone" id="telefone" placeholder="Ex: (99) 99999-9999" required>
+                        <button id="enviar-form1">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 2 - LABELS E ACESSIBILIDADE
+             ========================================== -->
+        <section class="desafio" id="desafio2">
+            <div class="desafio-header">
+                <div class="desafio-numero">2</div>
+                <div class="desafio-info">
+                    <h2>Labels e Acessibilidade</h2>
+                    <span class="dificuldade facil">⭐ Fácil</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Crie um formulário onde <strong>cada input tenha um label</strong> conectado. Pratique os 2
+                        métodos:</p>
+                    <ul>
+                        <li><strong>Método 1</strong> (for + id): Campo "Nome Completo"</li>
+                        <li><strong>Método 2</strong> (label envolvendo input): Campo "Idade"</li>
+                        <li>Adicione um <code>&lt;select&gt;</code> com label para "Estado" (coloque 3 opções)</li>
+                        <li>Adicione um <code>&lt;textarea&gt;</code> com label para "Sobre você"</li>
+                        <li>Marque os campos como <code>required</code></li>
+                    </ul>
+                    <div class="dica">No Método 1, o <code>for</code> do label deve ser igual ao <code>id</code> do
+                        input. Clique no label e veja o input ser focado!</div>
+                </div>
+
+                <div class="area-pratica">
+                    <form id="form-cadastro2">
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" name="nome" id="nome" placeholder="Insira seu nome aqui" required>
+                        <label>Idade:
+                            <input type="number" name="idade" id="idade" placeholder="Insira sua idade aqui" required>
+                        </label>
+                        <label for="estado">Estado:</label>
+                        <select name="estado" id="estado" required>
+                            <option value="" disabled selected>Selecione o seu Estado</option>
+                            <option value="mg">Minas Gerais</option>
+                            <option value="sp">São Paulo</option>
+                            <option value="rj">Rio de Janeiro</option>
+                            <option value="es">Espirito Santo</option>
+                        </select>
+                        <label for="sobre-mim">Sobre mim: </label>
+                        <textarea name="sobre-mim" id="sobre-mim" placeholder="Escreva um pouco sobre você" required></textarea>
+                        <button id="enviar-form2">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 3 - CAPTURANDO DADOS COM JS
+             ========================================== -->
+        <section class="desafio" id="desafio3">
+            <div class="desafio-header">
+                <div class="desafio-numero">3</div>
+                <div class="desafio-info">
+                    <h2>Capturando Dados com JavaScript</h2>
+                    <span class="dificuldade medio">⭐⭐ Médio</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Crie um formulário e escreva JavaScript para <strong>capturar e exibir</strong> os dados:</p>
+                    <ul>
+                        <li>Campo "Produto" (text)</li>
+                        <li>Campo "Quantidade" (number, min 1, max 99)</li>
+                        <li>Campo "Observações" (textarea)</li>
+                        <li>Botão de enviar</li>
+                    </ul>
+                    <p>No JavaScript:</p>
+                    <ul>
+                        <li>Use <code>addEventListener("submit", ...)</code></li>
+                        <li>Use <code>event.preventDefault()</code> para não recarregar a página</li>
+                        <li>Capture os valores com <code>.value</code></li>
+                        <li>Mostre os dados capturados na div de resultado abaixo</li>
+                    </ul>
+                    <div class="dica">Sem <code>event.preventDefault()</code> a página recarrega e perde tudo!</div>
+                </div>
+
+                <div class="area-pratica">
+                    <form id="form-pedido">
+                        <div class="form-group">
+                            <label for="produto">Produto:</label>
+                            <input type="text" id="produto" name="produto" placeholder="Ex: Camiseta">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade:</label>
+                            <input type="number" id="quantidade" name="quantidade" min="1" max="99" placeholder="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="observacoes">Observações:</label>
+                            <textarea id="observacoes" name="observacoes" rows="3"
+                                placeholder="Alguma observação..."></textarea>
+                        </div>
+                        <button type="submit">📦 Fazer Pedido</button>
+                    </form>
+                    <div class="resultado" id="resultado-pedido">Envie o formulário para ver os dados aqui...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 4 - VALIDAÇÃO BÁSICA
+             ========================================== -->
+        <section class="desafio" id="desafio4">
+            <div class="desafio-header">
+                <div class="desafio-numero">4</div>
+                <div class="desafio-info">
+                    <h2>Validação Básica com JS</h2>
+                    <span class="dificuldade medio">⭐⭐ Médio</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Crie um formulário de login com <strong>validação JavaScript</strong>:</p>
+                    <ul>
+                        <li>Campo "Usuário" - obrigatório, mínimo 3 caracteres</li>
+                        <li>Campo "Senha" (password) - obrigatório, mínimo 6 caracteres</li>
+                        <li>Spans de erro abaixo de cada campo (<code>&lt;span class="erro-msg"&gt;</code>)</li>
+                    </ul>
+                    <p>Regras de validação:</p>
+                    <ul>
+                        <li>Se o usuário estiver vazio → "Usuário é obrigatório"</li>
+                        <li>Se o usuário tiver menos de 3 chars → "Mínimo 3 caracteres"</li>
+                        <li>Se a senha estiver vazia → "Senha é obrigatória"</li>
+                        <li>Se a senha tiver menos de 6 chars → "Mínimo 6 caracteres"</li>
+                        <li>Adicione classe <code>erro</code> nos inputs inválidos</li>
+                    </ul>
+                    <div class="dica">Use <code>.trim()</code> para evitar que o usuário envie só espaços em branco!
+                    </div>
+                </div>
+
+                <div class="area-pratica">
+                    <form id="form-login">
+                        <div class="form-group">
+                            <label for="usuario">Usuário:</label>
+                            <input type="text" id="usuario" name="usuario" placeholder="Seu usuário">
+                            <span class="erro-msg" id="erro-usuario"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" id="senha" name="senha" placeholder="Sua senha">
+                            <span class="erro-msg" id="erro-senha"></span>
+                        </div>
+                        <button type="submit">🔐 Entrar</button>
+                        <div class="sucesso" id="sucesso-login">✅ Login realizado com sucesso!</div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 5 - VALIDAÇÃO DE EMAIL + FEEDBACK
+             ========================================== -->
+        <section class="desafio" id="desafio5">
+            <div class="desafio-header">
+                <div class="desafio-numero">5</div>
+                <div class="desafio-info">
+                    <h2>Email com Regex + Feedback Visual</h2>
+                    <span class="dificuldade medio">⭐⭐ Médio</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Crie um formulário de newsletter com <strong>validação de email usando regex</strong>:</p>
+                    <ul>
+                        <li>Campo "Nome" (mín. 2 caracteres)</li>
+                        <li>Campo "Email" (validar com regex)</li>
+                        <li>Função <code>validarEmail(email)</code> que use <code>/^[^\s@]+@[^\s@]+\.[^\s@]+$/</code>
+                        </li>
+                        <li>Mostrar classe <code>valido</code> (borda verde) quando correto</li>
+                        <li>Mostrar classe <code>erro</code> (borda vermelha) quando incorreto</li>
+                        <li>Mensagem de sucesso: "Inscrito com sucesso!"</li>
+                        <li>Após sucesso, limpar form com <code>.reset()</code></li>
+                    </ul>
+                    <div class="dica">O regex <code>/^[^\s@]+@[^\s@]+\.[^\s@]+$/</code> verifica se tem algo antes do @,
+                        algo depois, um ponto, e algo após o ponto.</div>
+                </div>
+
+                <div class="area-pratica">
+                    <form id="form-newsletter">
+                        <div class="form-group">
+                            <label for="nome-news">Nome:</label>
+                            <input type="text" id="nome-news" name="nome" placeholder="Seu nome">
+                            <span class="erro-msg" id="erro-nome-news"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email-news">Email:</label>
+                            <input type="email" id="email-news" name="email" placeholder="seu@email.com">
+                            <span class="erro-msg" id="erro-email-news"></span>
+                        </div>
+                        <button type="submit">📩 Inscrever-se</button>
+                        <div class="sucesso" id="sucesso-newsletter">🎉 Inscrito com sucesso! Bem-vindo à newsletter!
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 6 - FORÇA DA SENHA + TEMPO REAL
+             ========================================== -->
+        <section class="desafio" id="desafio6">
+            <div class="desafio-header">
+                <div class="desafio-numero">6</div>
+                <div class="desafio-info">
+                    <h2>Força da Senha + Validação em Tempo Real</h2>
+                    <span class="dificuldade dificil">⭐⭐⭐ Difícil</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Crie um formulário de criação de conta com <strong>validação em tempo real</strong>:</p>
+                    <ul>
+                        <li>Campo "Email" - validar em tempo real com evento <code>input</code></li>
+                        <li>Campo "Senha" - mostrar barra de força da senha</li>
+                        <li>Campo "Confirmar Senha" - verificar se é igual à senha</li>
+                    </ul>
+                    <p>Regras da barra de força:</p>
+                    <ul>
+                        <li><strong>Fraca</strong> (vermelha): menos de 6 caracteres</li>
+                        <li><strong>Média</strong> (amarela): 6+ chars, tem letra e número</li>
+                        <li><strong>Forte</strong> (verde): 8+ chars, tem letra, número e caractere especial</li>
+                    </ul>
+                    <p>Use o evento <code>input</code> nos campos para validar <strong>enquanto digita</strong>.</p>
+                    <div class="dica">Use <code>addEventListener("input", ...)</code> em vez de <code>"submit"</code>
+                        para validar em tempo real!</div>
+                </div>
+
+                <div class="area-pratica">
+                    <form id="form-conta">
+                        <div class="form-group">
+                            <label for="email-conta">Email:</label>
+                            <input type="email" id="email-conta" name="email" placeholder="seu@email.com">
+                            <span class="erro-msg" id="erro-email-conta"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha-conta">Senha:</label>
+                            <input type="password" id="senha-conta" name="senha" placeholder="Crie uma senha forte">
+                            <div class="forca-senha">
+                                <div class="barra" id="barra-forca"></div>
+                            </div>
+                            <span class="forca-texto" id="texto-forca"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmar-senha">Confirmar Senha:</label>
+                            <input type="password" id="confirmar-senha" name="confirmar-senha"
+                                placeholder="Repita a senha">
+                            <span class="erro-msg" id="erro-confirmar"></span>
+                        </div>
+                        <button type="submit">🚀 Criar Conta</button>
+                        <div class="sucesso" id="sucesso-conta">✅ Conta criada com sucesso!</div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 7 - FORMULÁRIO COMPLETO COM FORMDATA
+             ========================================== -->
+        <section class="desafio" id="desafio7">
+            <div class="desafio-header">
+                <div class="desafio-numero">7</div>
+                <div class="desafio-info">
+                    <h2>Formulário Completo com FormData</h2>
+                    <span class="dificuldade dificil">⭐⭐⭐ Difícil</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Crie um formulário de cadastro completo usando <strong>FormData</strong> para capturar tudo de
+                        uma vez:</p>
+                    <ul>
+                        <li>Campo "Nome Completo" (text)</li>
+                        <li>Campo "Email" (email)</li>
+                        <li>Campo "Idade" (number, min 1, max 120)</li>
+                        <li>Select "Experiência" (Iniciante, Intermediário, Avançado)</li>
+                        <li>Checkboxes "Interesses" (HTML, CSS, JavaScript - pode marcar vários)</li>
+                        <li>Textarea "Motivação" (com contador de caracteres, max 200)</li>
+                    </ul>
+                    <p>No JavaScript:</p>
+                    <ul>
+                        <li>Use <code>new FormData(form)</code> para capturar TODOS os dados</li>
+                        <li>Use <code>Object.fromEntries(formData)</code> para converter em objeto</li>
+                        <li>Valide todos os campos</li>
+                        <li>Mostre o objeto completo na área de resultado como JSON</li>
+                        <li>Implemente o contador de caracteres em tempo real</li>
+                    </ul>
+                    <div class="dica">Com <code>FormData</code> + <code>Object.fromEntries()</code>, você captura o
+                        formulário inteiro em 2 linhas!</div>
+                </div>
+
+                <div class="area-pratica">
+                    <form id="form-cadastro-completo">
+                        <div class="form-group">
+                            <label for="nome-completo">Nome Completo:</label>
+                            <input type="text" id="nome-completo" name="nome" placeholder="Seu nome completo">
+                            <span class="erro-msg" id="erro-nome-completo"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email-cadastro">Email:</label>
+                            <input type="email" id="email-cadastro" name="email" placeholder="seu@email.com">
+                            <span class="erro-msg" id="erro-email-cadastro"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="idade-cadastro">Idade:</label>
+                            <input type="number" id="idade-cadastro" name="idade" min="1" max="120"
+                                placeholder="Sua idade">
+                            <span class="erro-msg" id="erro-idade-cadastro"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="experiencia">Nível de Experiência:</label>
+                            <select id="experiencia" name="experiencia">
+                                <option value="">Selecione...</option>
+                                <option value="iniciante">🌱 Iniciante</option>
+                                <option value="intermediario">🌿 Intermediário</option>
+                                <option value="avancado">🌳 Avançado</option>
+                            </select>
+                            <span class="erro-msg" id="erro-experiencia"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Interesses:</label>
+                            <div class="opcoes-grupo">
+                                <label class="opcao-item">
+                                    <input type="checkbox" name="interesses" value="html"> HTML
+                                </label>
+                                <label class="opcao-item">
+                                    <input type="checkbox" name="interesses" value="css"> CSS
+                                </label>
+                                <label class="opcao-item">
+                                    <input type="checkbox" name="interesses" value="javascript"> JavaScript
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="motivacao">Motivação (máx. 200 caracteres):</label>
+                            <textarea id="motivacao" name="motivacao" rows="3" maxlength="200"
+                                placeholder="Por que quer aprender web development?"></textarea>
+                            <span class="contador" id="contador-motivacao">0 / 200</span>
+                        </div>
+                        <button type="submit">✅ Cadastrar</button>
+                        <div class="sucesso" id="sucesso-cadastro">🎉 Cadastro realizado com sucesso!</div>
+                    </form>
+                    <div class="resultado" id="resultado-cadastro">Envie o formulário para ver o objeto FormData aqui...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>📚 Treino de Formulários - Aula 09</p>
+        <p><a href="index.html">← Voltar ao Resumo de Estudos</a></p>
+    </footer>
+
+    <script src="formularios.js"></script>
+    <script>
+        // ============================================
+        // DESAFIO 3 - Capturando Dados
+        // ============================================
+        // 🎯 MISSÃO: Capture os dados do formulário e mostre no resultado.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // const formPedido = document.querySelector("#form-pedido");
+        //
+        // formPedido.addEventListener("submit", (event) => {
+        //     event.preventDefault();
+        //
+        //     const produto = document.querySelector("#produto").value;
+        //     const quantidade = document.querySelector("#quantidade").value;
+        //     const observacoes = document.querySelector("#observacoes").value;
+        //
+        //     const resultado = document.querySelector("#resultado-pedido");
+        //     resultado.textContent = `Produto: ${produto}\nQuantidade: ${quantidade}\nObservações: ${observacoes}`;
+        // });
+
+
+        // ============================================
+        // DESAFIO 4 - Validação Básica
+        // ============================================
+        // 🎯 MISSÃO: Valide os campos e mostre erros ou sucesso.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // const formLogin = document.querySelector("#form-login");
+        //
+        // formLogin.addEventListener("submit", (event) => {
+        //     event.preventDefault();
+        //     limparErrosLogin();
+        //
+        //     const usuario = document.querySelector("#usuario").value;
+        //     const senha = document.querySelector("#senha").value;
+        //     let valido = true;
+        //
+        //     if (usuario.trim() === "") {
+        //         mostrarErroLogin("usuario", "Usuário é obrigatório");
+        //         valido = false;
+        //     } else if (usuario.length < 3) {
+        //         mostrarErroLogin("usuario", "Mínimo 3 caracteres");
+        //         valido = false;
+        //     }
+        //
+        //     if (senha.trim() === "") {
+        //         mostrarErroLogin("senha", "Senha é obrigatória");
+        //         valido = false;
+        //     } else if (senha.length < 6) {
+        //         mostrarErroLogin("senha", "Mínimo 6 caracteres");
+        //         valido = false;
+        //     }
+        //
+        //     if (valido) {
+        //         document.querySelector("#sucesso-login").classList.add("visivel");
+        //         formLogin.reset();
+        //     }
+        // });
+        //
+        // function mostrarErroLogin(campo, mensagem) {
+        //     document.querySelector(`#${campo}`).classList.add("erro");
+        //     document.querySelector(`#erro-${campo}`).textContent = mensagem;
+        // }
+        //
+        // function limparErrosLogin() {
+        //     document.querySelectorAll("#form-login input").forEach(i => i.classList.remove("erro", "valido"));
+        //     document.querySelectorAll("#form-login .erro-msg").forEach(s => s.textContent = "");
+        //     document.querySelector("#sucesso-login").classList.remove("visivel");
+        // }
+
+
+        // ============================================
+        // DESAFIO 5 - Email Regex + Feedback
+        // ============================================
+        // 🎯 MISSÃO: Valide o email com regex e use classes visuais.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // function validarEmail(email) {
+        //     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        //     return regex.test(email);
+        // }
+        //
+        // const formNewsletter = document.querySelector("#form-newsletter");
+        //
+        // formNewsletter.addEventListener("submit", (event) => {
+        //     event.preventDefault();
+        //     // Limpar erros...
+        //     // Validar nome...
+        //     // Validar email com validarEmail()...
+        //     // Se válido, mostrar sucesso e form.reset()
+        // });
+
+
+        // ============================================
+        // DESAFIO 6 - Força da Senha + Tempo Real
+        // ============================================
+        // 🎯 MISSÃO: Valide em tempo real e mostre a força da senha.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // const senhaInput = document.querySelector("#senha-conta");
+        // const barra = document.querySelector("#barra-forca");
+        // const textoForca = document.querySelector("#texto-forca");
+        //
+        // senhaInput.addEventListener("input", () => {
+        //     const senha = senhaInput.value;
+        //     barra.className = "barra";  // reset
+        //
+        //     if (senha.length === 0) {
+        //         textoForca.textContent = "";
+        //         return;
+        //     }
+        //
+        //     // Verificar força:
+        //     // const temLetra = /[a-zA-Z]/.test(senha);
+        //     // const temNumero = /[0-9]/.test(senha);
+        //     // const temEspecial = /[!@#$%^&*]/.test(senha);
+        //     //
+        //     // if (senha.length >= 8 && temLetra && temNumero && temEspecial) {
+        //     //     barra.classList.add("forte");
+        //     //     textoForca.textContent = "💪 Senha forte!";
+        //     //     textoForca.style.color = "#4ecdc4";
+        //     // } else if (senha.length >= 6 && temLetra && temNumero) {
+        //     //     barra.classList.add("media");
+        //     //     textoForca.textContent = "🤔 Senha média";
+        //     //     textoForca.style.color = "#ffd700";
+        //     // } else {
+        //     //     barra.classList.add("fraca");
+        //     //     textoForca.textContent = "😬 Senha fraca";
+        //     //     textoForca.style.color = "#ff6b6b";
+        //     // }
+        // });
+        //
+        // // Validar "confirmar senha" em tempo real:
+        // const confirmarInput = document.querySelector("#confirmar-senha");
+        // confirmarInput.addEventListener("input", () => {
+        //     // Comparar com senha e mostrar erro se diferente
+        // });
+
+
+        // ============================================
+        // DESAFIO 7 - FormData Completo
+        // ============================================
+        // 🎯 MISSÃO: Use FormData, valide tudo e mostre o JSON.
+        //
+        // CONTADOR DE CARACTERES (implementar):
+        //
+        // const motivacao = document.querySelector("#motivacao");
+        // const contador = document.querySelector("#contador-motivacao");
+        //
+        // motivacao.addEventListener("input", () => {
+        //     const atual = motivacao.value.length;
+        //     contador.textContent = `${atual} / 200`;
+        //     if (atual > 180) {
+        //         contador.classList.add("alerta");
+        //     } else {
+        //         contador.classList.remove("alerta");
+        //     }
+        // });
+        //
+        // FORMDATA (implementar):
+        //
+        // const formCadastro = document.querySelector("#form-cadastro-completo");
+        //
+        // formCadastro.addEventListener("submit", (event) => {
+        //     event.preventDefault();
+        //
+        //     // Capturar com FormData
+        //     const formData = new FormData(formCadastro);
+        //     const dados = Object.fromEntries(formData);
+        //
+        //     // Capturar checkboxes (FormData pega só o último!)
+        //     const interesses = formData.getAll("interesses");
+        //     dados.interesses = interesses;
+        //
+        //     // Validar campos...
+        //     // Mostrar no resultado como JSON:
+        //     // document.querySelector("#resultado-cadastro").textContent = JSON.stringify(dados, null, 2);
+        // });
+    </script>
+</body>
+
+</html>

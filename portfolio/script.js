@@ -97,6 +97,10 @@ function validarEmail() {
     }
 }
 
+emailInput.addEventListener("input", (event) => {
+    validarEmail()
+})
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     validarNome();
@@ -109,5 +113,6 @@ form.addEventListener("submit", (event) => {
         setTimeout(() => {
             sucessoMsg.classList.add("hidden");
         }, 3000);
+        form.reset();
     }
 });
