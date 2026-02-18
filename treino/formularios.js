@@ -62,19 +62,85 @@ const emailInput = document.querySelector("#email-news");
 
 function validarEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const emailResultado = regex.test(email);
+    const emailResultado = regex.test(email.value);
 
     if (emailResultado === false) {
-        emailInput.classList.add("erro");
-        emailInput.classList.remove("valido");
+        email.classList.add("erro");
+        email.classList.remove("valido");
     }
     else {
-        emailInput.classList.add("valido");
-        emailInput.classList.remove("erro");
+        email.classList.add("valido");
+        email.classList.remove("erro");
     }
 };
 
 formEmail.addEventListener("submit", (event) => {
     event.preventDefault();
-    validarEmail(emailInput.value);
+    validarEmail(emailInput);
 });
+
+const formConta = document.querySelector("#form-conta");
+const emailConta = document.querySelector("#email-conta");
+
+formConta.addEventListener("input", (event) => {
+    validarEmail(emailConta);
+});
+
+const senhaConta = document.querySelector("#senha-conta");
+const barra = document.querySelector("#barra-forca");
+const senhaForca = document.querySelector("#texto-forca");
+
+senhaConta.addEventListener("input", () => {
+    const senhaValor = senhaConta.value;
+    barra.className = "barra";
+
+    if (senhaValor.length === 0){
+        senhaForca.textContent = "";
+        return;
+    }
+
+    const temNumero = /[0-9]/.test(senhaValor);
+    const temLetra = /[a-zA-Z]/.test(senhaValor);
+    const temEspecial = /[!@#$%&*()_+\|-]/.test(senhaValor);
+
+    if (senhaValor.length < 6 ) {
+        barra.classList.add("fraca");
+        senhaForca.textContent = "Senha fraca!";
+        senhaForca.style.color = "Red";
+    }
+    else if (senhaValor.length >= 6 && temNumero && temLetra && temEspecial) {
+        barra.classList.add("forte");
+        senhaForca.textContent = "Senha forte!";
+        senhaForca.style.color = "Green";
+    }
+    else if (senhaValor.length >= 6 && temNumero && temLetra) {
+        barra.classList.add("media");
+        senhaForca.textContent = "Senha média!";
+        senhaForca.style.color = "Yellow";
+    }
+    else if (senhaValor.length >= 6 ) {
+        barra.classList.add("media");
+        senhaForca.textContent = "Senha média!";
+        senhaForca.style.color = "Yellow";
+    }
+});
+
+const confirmarSenha = document.querySelector("#confirmar-senha");
+const erroConfirmar = document.querySelector("#erro-confirmar");
+
+confirmarSenha.addEventListener("input", () => {
+    const confirmarInput = confirmarSenha.value;
+    const senhaInput = senhaConta.value;
+
+    if (confirmarInput.length === 0) {
+        erroConfirmar.textContent = "";
+        return;
+    }
+
+    if (confirmarInput != senhaInput) {
+        erroConfirmar.textContent = "As senhas devem ser iguais!";
+    }
+    else if (confirmarInput === senhaInput) {
+        erroConfirmar.textContent = "";
+    }
+})
