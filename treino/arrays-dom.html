@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino - Arrays, JS Moderno e DOM Dinâmico</title>
+    <style>
+        /* ========================================
+           RESET E BASE
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ========================================
+           HEADER
+           ======================================== */
+        header {
+            background: linear-gradient(135deg, #0a8754 0%, #11998e 50%, #38ef7d 100%);
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            position: relative;
+        }
+
+        .nivel-barra {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .nivel-barra span {
+            width: 30px;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .nivel-barra span.ativo {
+            background: #fff;
+        }
+
+        /* ========================================
+           NAVEGAÇÃO
+           ======================================== */
+        nav {
+            background: #1a1a2e;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 1rem;
+            justify-content: center;
+            border-bottom: 2px solid #11998e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #11998e;
+            text-decoration: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            background: rgba(17, 153, 142, 0.15);
+            border-color: #11998e;
+        }
+
+        /* ========================================
+           SEÇÕES DE DESAFIO
+           ======================================== */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .desafio {
+            background: #1a1a2e;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid #2d2d44;
+            overflow: hidden;
+        }
+
+        .desafio-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-bottom: 1px solid #2d2d44;
+        }
+
+        .desafio-numero {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .desafio-info h2 {
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .dificuldade {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .dificuldade.facil {
+            background: rgba(56, 239, 125, 0.15);
+            color: #38ef7d;
+        }
+
+        .dificuldade.medio {
+            background: rgba(255, 215, 0, 0.15);
+            color: #ffd700;
+        }
+
+        .dificuldade.dificil {
+            background: rgba(255, 107, 107, 0.15);
+            color: #ff6b6b;
+        }
+
+        .desafio-body {
+            padding: 1.5rem;
+        }
+
+        /* Instruções */
+        .instrucoes {
+            margin-bottom: 1.5rem;
+        }
+
+        .instrucoes h3 {
+            color: #11998e;
+            margin-bottom: 0.5rem;
+        }
+
+        .instrucoes ul {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .instrucoes li {
+            margin-bottom: 0.3rem;
+        }
+
+        .instrucoes code {
+            background: #16213e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #38ef7d;
+        }
+
+        .dica {
+            background: rgba(17, 153, 142, 0.1);
+            border-left: 3px solid #11998e;
+            padding: 0.8rem;
+            margin-top: 0.8rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Área de prática */
+        .area-pratica {
+            background: #16213e;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .area-pratica label {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: #a0a0c0;
+            font-size: 0.9rem;
+        }
+
+        .area-pratica input[type="text"] {
+            width: 100%;
+            padding: 0.7rem;
+            border: 2px solid #2d2d44;
+            border-radius: 8px;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .area-pratica input[type="text"]:focus {
+            outline: none;
+            border-color: #11998e;
+        }
+
+        .area-pratica button {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .area-pratica button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+        }
+
+        /* Resultado / Output */
+        .resultado {
+            background: #0f0f1a;
+            border: 1px solid #2d2d44;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.85rem;
+            color: #38ef7d;
+            min-height: 40px;
+            white-space: pre-wrap;
+        }
+
+        .resultado::before {
+            content: '> Output:';
+            display: block;
+            color: #11998e;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* Lista dinâmica */
+        .lista-dinamica {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .lista-dinamica li {
+            background: #1a1a2e;
+            padding: 0.6rem 1rem;
+            margin-bottom: 0.4rem;
+            border-radius: 8px;
+            border: 1px solid #2d2d44;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lista-dinamica li .btn-remover {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0;
+        }
+
+        .lista-dinamica li .btn-remover:hover {
+            background: rgba(255, 107, 107, 0.4);
+            transform: scale(1.1);
+            box-shadow: none;
+        }
+
+        /* Todo list styles */
+        .todo-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .todo-container input {
+            flex: 1;
+        }
+
+        .todo-container button {
+            margin-top: 0;
+            flex-shrink: 0;
+        }
+
+        .todo-info {
+            font-size: 0.8rem;
+            color: #a0a0c0;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .lista-dinamica li.concluida span {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background: #1a1a2e;
+            color: #a0a0a0;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-top: 1px solid #2d2d44;
+        }
+
+        footer a {
+            color: #38ef7d;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           ANIMAÇÕES
+           ======================================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .desafio {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ========================================
+           RESPONSIVIDADE
+           ======================================== */
+        @media (min-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            main {
+                padding: 2rem;
+            }
+
+            .desafio-body {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>⚡ Arrays, JS Moderno e DOM Dinâmico</h1>
+        <p>7 desafios progressivos — de métodos de array até criar elementos na tela</p>
+        <div class="nivel-barra">
+            <span class="ativo"></span>
+            <span class="ativo"></span>
+            <span class="ativo"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#desafio1">1. forEach/map</a>
+        <a href="#desafio2">2. filter/find</a>
+        <a href="#desafio3">3. Destructuring</a>
+        <a href="#desafio4">4. Spread</a>
+        <a href="#desafio5">5. createElement</a>
+        <a href="#desafio6">6. Remover</a>
+        <a href="#desafio7">7. To-Do List</a>
+    </nav>
+
+    <main>
+
+        <!-- ==========================================
+             DESAFIO 1 - forEach, map, filter
+             ========================================== -->
+        <section class="desafio" id="desafio1">
+            <div class="desafio-header">
+                <div class="desafio-numero">1</div>
+                <div class="desafio-info">
+                    <h2>forEach, map e filter</h2>
+                    <span class="dificuldade facil">⭐ Fácil</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Você já conhece <code>forEach</code> dos formulários. Agora vamos aprender <code>map</code> e
+                        <code>filter</code> — dois métodos que <strong>transformam</strong> arrays.
+                    </p>
+                    <ul>
+                        <li>Dado o array: <code>[3, 7, 12, 5, 20, 8, 15, 2]</code></li>
+                        <li>Use <code>map</code> para criar um <strong>novo array</strong> com o dobro de cada número
+                        </li>
+                        <li>Use <code>filter</code> para criar um <strong>novo array</strong> só com os números pares
+                        </li>
+                        <li>Mostre os dois resultados na área de output</li>
+                    </ul>
+                    <p><strong>A diferença crucial:</strong></p>
+                    <ul>
+                        <li><code>forEach</code> → percorre e <strong>não retorna nada</strong> (só executa)</li>
+                        <li><code>map</code> → percorre e <strong>retorna um novo array transformado</strong></li>
+                        <li><code>filter</code> → percorre e <strong>retorna um novo array filtrado</strong></li>
+                    </ul>
+                    <div class="dica">O <code>map</code> e <code>filter</code> nunca alteram o array original — eles
+                        sempre criam um <strong>novo</strong> array. Isso é chamado de "imutabilidade" e é muito
+                        importante no React!</div>
+                </div>
+
+                <div class="area-pratica">
+                    <button id="btn-desafio1">🚀 Executar</button>
+                    <div class="resultado" id="resultado1">Clique no botão para ver o resultado...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 2 - find e reduce
+             ========================================== -->
+        <section class="desafio" id="desafio2">
+            <div class="desafio-header">
+                <div class="desafio-numero">2</div>
+                <div class="desafio-info">
+                    <h2>find e reduce</h2>
+                    <span class="dificuldade facil">⭐ Fácil</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Agora vamos usar <code>find</code> e <code>reduce</code> com um array de objetos:</p>
+                    <ul>
+                        <li>Dado o array de produtos:</li>
+                    </ul>
+                    <pre
+                        style="background:#0f0f1a; padding:0.8rem; border-radius:8px; margin:0.5rem 0; color:#38ef7d; font-size:0.85rem;">
+const produtos = [
+    { nome: "Camiseta", preco: 49.90 },
+    { nome: "Calça", preco: 129.90 },
+    { nome: "Tênis", preco: 299.90 },
+    { nome: "Boné", preco: 39.90 },
+    { nome: "Jaqueta", preco: 189.90 }
+];</pre>
+                    <ul>
+                        <li>Use <code>find</code> para encontrar o <strong>primeiro</strong> produto acima de R$100</li>
+                        <li>Use <code>reduce</code> para calcular o <strong>total</strong> de todos os preços</li>
+                        <li>Use <code>filter</code> para pegar <strong>todos</strong> os produtos abaixo de R$100</li>
+                        <li>Mostre tudo no output</li>
+                    </ul>
+                    <p><strong>Diferença entre find e filter:</strong></p>
+                    <ul>
+                        <li><code>find</code> → retorna o <strong>primeiro item</strong> que passa no teste (um
+                            objeto)</li>
+                        <li><code>filter</code> → retorna <strong>todos os itens</strong> que passam no teste (um array)
+                        </li>
+                    </ul>
+                    <div class="dica"><code>reduce</code> é o mais poderoso: ele "reduz" um array inteiro a um único
+                        valor.
+                        Sintaxe: <code>array.reduce((acumulador, item) => acumulador + item.preco, 0)</code> — o
+                        <code>0</code> é o valor inicial do acumulador.
+                    </div>
+                </div>
+
+                <div class="area-pratica">
+                    <button id="btn-desafio2">🚀 Executar</button>
+                    <div class="resultado" id="resultado2">Clique no botão para ver o resultado...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 3 - DESTRUCTURING
+             ========================================== -->
+        <section class="desafio" id="desafio3">
+            <div class="desafio-header">
+                <div class="desafio-numero">3</div>
+                <div class="desafio-info">
+                    <h2>Destructuring (Desestruturação)</h2>
+                    <span class="dificuldade medio">⭐⭐ Médio</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Destructuring é um atalho para <strong>extrair valores</strong> de objetos e arrays. Em vez de
+                        acessar com <code>obj.propriedade</code>, você "abre" o valor direto:</p>
+                    <ul>
+                        <li><strong>Parte 1 — Objetos:</strong> Dado o objeto abaixo, extraia <code>nome</code>,
+                            <code>idade</code> e <code>cidade</code> usando destructuring
+                        </li>
+                    </ul>
+                    <pre
+                        style="background:#0f0f1a; padding:0.8rem; border-radius:8px; margin:0.5rem 0; color:#38ef7d; font-size:0.85rem;">
+const pessoa = { nome: "Gabriel", idade: 25, cidade: "BH", profissao: "Dev" };</pre>
+                    <ul>
+                        <li><strong>Parte 2 — Arrays:</strong> Dado o array abaixo, extraia o primeiro e segundo item
+                        </li>
+                    </ul>
+                    <pre
+                        style="background:#0f0f1a; padding:0.8rem; border-radius:8px; margin:0.5rem 0; color:#38ef7d; font-size:0.85rem;">
+const cores = ["vermelho", "azul", "verde", "amarelo"];</pre>
+                    <ul>
+                        <li><strong>Parte 3 — Em funções:</strong> Crie uma função que receba um objeto pessoa e use
+                            destructuring <strong>no parâmetro</strong></li>
+                    </ul>
+                    <p><strong>Comparação lado a lado:</strong></p>
+                    <pre
+                        style="background:#0f0f1a; padding:0.8rem; border-radius:8px; margin:0.5rem 0; color:#e0e0e0; font-size:0.85rem;">
+<span style="color:#ff6b6b">// ❌ Sem destructuring (modo antigo):</span>
+const nome = pessoa.nome;
+const idade = pessoa.idade;
+
+<span style="color:#38ef7d">// ✅ Com destructuring (modo moderno):</span>
+const { nome, idade } = pessoa;</pre>
+                    <div class="dica">No destructuring de objetos, os nomes das variáveis <strong>devem
+                            corresponder</strong> às chaves do objeto. Para arrays, a posição é que importa.</div>
+                </div>
+
+                <div class="area-pratica">
+                    <button id="btn-desafio3">🚀 Executar</button>
+                    <div class="resultado" id="resultado3">Clique no botão para ver o resultado...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 4 - SPREAD OPERATOR
+             ========================================== -->
+        <section class="desafio" id="desafio4">
+            <div class="desafio-header">
+                <div class="desafio-numero">4</div>
+                <div class="desafio-info">
+                    <h2>Spread Operator (...)</h2>
+                    <span class="dificuldade medio">⭐⭐ Médio</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>O spread operator (<code>...</code>) "espalha" os itens de um array ou objeto. É como abrir uma
+                        caixa e jogar o conteúdo fora dela:</p>
+                    <ul>
+                        <li><strong>Parte 1 — Combinar arrays:</strong> Junte os dois arrays abaixo em um só</li>
+                    </ul>
+                    <pre
+                        style="background:#0f0f1a; padding:0.8rem; border-radius:8px; margin:0.5rem 0; color:#38ef7d; font-size:0.85rem;">
+const frontend = ["HTML", "CSS", "JavaScript"];
+const backend = ["Node.js", "Python", "Java"];</pre>
+                    <ul>
+                        <li><strong>Parte 2 — Copiar e modificar objeto:</strong> Copie o objeto abaixo e mude a
+                            cidade</li>
+                    </ul>
+                    <pre
+                        style="background:#0f0f1a; padding:0.8rem; border-radius:8px; margin:0.5rem 0; color:#38ef7d; font-size:0.85rem;">
+const usuario = { nome: "Gabriel", cidade: "BH", nivel: "iniciante" };</pre>
+                    <ul>
+                        <li><strong>Parte 3 — Adicionar item ao array sem mutar:</strong> Adicione "TypeScript" ao
+                            array <code>frontend</code> <strong>sem usar push</strong></li>
+                    </ul>
+                    <p><strong>Por que não usar push?</strong></p>
+                    <pre
+                        style="background:#0f0f1a; padding:0.8rem; border-radius:8px; margin:0.5rem 0; color:#e0e0e0; font-size:0.85rem;">
+<span style="color:#ff6b6b">// push ALTERA o array original (mutação):</span>
+frontend.push("TypeScript");
+
+<span style="color:#38ef7d">// spread CRIA um novo array (sem mutação):</span>
+const novoArray = [...frontend, "TypeScript"];</pre>
+                    <div class="dica">No React, você <strong>nunca</strong> deve mutar o estado diretamente. O spread é
+                        a ferramenta principal para atualizar arrays e objetos sem mutação. Aprenda agora e vai te
+                        salvar
+                        depois!</div>
+                </div>
+
+                <div class="area-pratica">
+                    <button id="btn-desafio4">🚀 Executar</button>
+                    <div class="resultado" id="resultado4">Clique no botão para ver o resultado...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 5 - createElement + appendChild
+             ========================================== -->
+        <section class="desafio" id="desafio5">
+            <div class="desafio-header">
+                <div class="desafio-numero">5</div>
+                <div class="desafio-info">
+                    <h2>createElement + appendChild</h2>
+                    <span class="dificuldade medio">⭐⭐ Médio</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Até agora você mudou conteúdo que já existia na página (<code>textContent</code>,
+                        <code>innerHTML</code>). Agora vamos <strong>criar elementos do zero</strong> com JavaScript!
+                    </p>
+                    <ul>
+                        <li>Dado o array:
+                            <code>["Maria", "João", "Ana", "Carlos", "Beatriz"]</code>
+                        </li>
+                        <li>Para <strong>cada nome</strong>, crie um <code>&lt;li&gt;</code> com
+                            <code>document.createElement("li")</code>
+                        </li>
+                        <li>Defina o texto do <code>&lt;li&gt;</code> com <code>.textContent</code></li>
+                        <li>Adicione o <code>&lt;li&gt;</code> na <code>&lt;ul&gt;</code> abaixo com
+                            <code>.appendChild()</code>
+                        </li>
+                    </ul>
+                    <p><strong>O fluxo é sempre:</strong></p>
+                    <pre
+                        style="background:#0f0f1a; padding:0.8rem; border-radius:8px; margin:0.5rem 0; color:#e0e0e0; font-size:0.85rem;">
+<span style="color:#a0a0c0">// 1. Criar o elemento</span>
+const li = document.createElement("li");
+
+<span style="color:#a0a0c0">// 2. Configurar (texto, classes, atributos...)</span>
+li.textContent = "Maria";
+
+<span style="color:#a0a0c0">// 3. Colocar na página</span>
+lista.appendChild(li);</pre>
+                    <div class="dica">O elemento só aparece na tela <strong>depois</strong> de usar
+                        <code>appendChild</code>. Antes disso ele existe só na memória do JavaScript!
+                    </div>
+                </div>
+
+                <div class="area-pratica">
+                    <button id="btn-desafio5">📋 Gerar Lista</button>
+                    <ul class="lista-dinamica" id="lista-nomes"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 6 - Remover elementos
+             ========================================== -->
+        <section class="desafio" id="desafio6">
+            <div class="desafio-header">
+                <div class="desafio-numero">6</div>
+                <div class="desafio-info">
+                    <h2>Remover Elementos + Event Delegation</h2>
+                    <span class="dificuldade dificil">⭐⭐⭐ Difícil</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Expanda o desafio anterior: agora cada item deve ter um <strong>botão "✕"</strong> que o remove
+                        ao clicar.</p>
+                    <ul>
+                        <li>Mesmo array:
+                            <code>["Maria", "João", "Ana", "Carlos", "Beatriz"]</code>
+                        </li>
+                        <li>Cada <code>&lt;li&gt;</code> deve conter: um <code>&lt;span&gt;</code> com o nome + um
+                            <code>&lt;button&gt;</code> com "✕"
+                        </li>
+                        <li>Ao clicar no "✕", remova o <code>&lt;li&gt;</code> da página</li>
+                    </ul>
+                    <p><strong>Conceito novo — Event Delegation:</strong></p>
+                    <p>Em vez de adicionar um evento em <strong>cada</strong> botão, você adiciona <strong>um único
+                            evento na &lt;ul&gt;</strong> e verifica quem foi clicado:</p>
+                    <pre
+                        style="background:#0f0f1a; padding:0.8rem; border-radius:8px; margin:0.5rem 0; color:#e0e0e0; font-size:0.85rem;">
+<span style="color:#a0a0c0">// ❌ Um evento por botão (ineficiente):</span>
+botao1.addEventListener("click", ...);
+botao2.addEventListener("click", ...);
+
+<span style="color:#38ef7d">// ✅ Event Delegation (um evento para todos):</span>
+lista.addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-remover")) {
+        event.target.closest("li").remove();
+    }
+});</pre>
+                    <div class="dica"><code>event.target</code> é o elemento exato que foi clicado.
+                        <code>.closest("li")</code> sobe na árvore do DOM até achar o <code>&lt;li&gt;</code> pai. Esse
+                        padrão é usado em frameworks como React por baixo dos panos!
+                    </div>
+                </div>
+
+                <div class="area-pratica">
+                    <button id="btn-desafio6">📋 Gerar Lista com Remover</button>
+                    <ul class="lista-dinamica" id="lista-removivel"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DESAFIO 7 - MINI TO-DO LIST
+             ========================================== -->
+        <section class="desafio" id="desafio7">
+            <div class="desafio-header">
+                <div class="desafio-numero">7</div>
+                <div class="desafio-info">
+                    <h2>Mini To-Do List — Juntando Tudo!</h2>
+                    <span class="dificuldade dificil">⭐⭐⭐ Difícil</span>
+                </div>
+            </div>
+            <div class="desafio-body">
+                <div class="instrucoes">
+                    <h3>📋 O que fazer:</h3>
+                    <p>Este é o <strong>boss final</strong>! Crie uma To-Do List funcional usando <strong>tudo que
+                            aprendeu</strong>:</p>
+                    <ul>
+                        <li>Input de texto + botão "Adicionar"</li>
+                        <li>Ao clicar "Adicionar" (ou pressionar Enter):
+                            <ul>
+                                <li>Valide se o campo não está vazio</li>
+                                <li>Crie um <code>&lt;li&gt;</code> com o texto da tarefa</li>
+                                <li>Adicione um botão "✕" para remover</li>
+                                <li>Limpe o input após adicionar</li>
+                            </ul>
+                        </li>
+                        <li>Ao clicar na tarefa (no texto), marcar como <strong>concluída</strong> (classe
+                            <code>concluida</code>)
+                        </li>
+                        <li>Ao clicar no "✕", remover a tarefa</li>
+                        <li>Mostrar contador: "X tarefa(s) pendente(s)"</li>
+                    </ul>
+                    <p><strong>Ferramentas que você vai usar:</strong></p>
+                    <ul>
+                        <li><code>createElement</code> + <code>appendChild</code> → criar itens</li>
+                        <li><code>remove()</code> → deletar itens</li>
+                        <li>Event delegation → detectar cliques na lista</li>
+                        <li><code>classList.toggle</code> → marcar/desmarcar concluída</li>
+                        <li><code>querySelectorAll</code> + <code>filter</code> → contar pendentes</li>
+                    </ul>
+                    <div class="dica">Este é basicamente o projeto que todo dev faz ao aprender um framework como React.
+                        Você está fazendo com JS puro — quando for usar React, vai entender exatamente o que o framework
+                        automatiza pra você!</div>
+                </div>
+
+                <div class="area-pratica">
+                    <div class="todo-container">
+                        <input type="text" id="input-tarefa" placeholder="Escreva uma tarefa...">
+                        <button id="btn-adicionar">➕ Adicionar</button>
+                    </div>
+                    <ul class="lista-dinamica" id="lista-tarefas"></ul>
+                    <p class="todo-info" id="contador-tarefas">Nenhuma tarefa adicionada</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>📚 Treino de Arrays, JS Moderno e DOM — Aula 10</p>
+        <p><a href="index.html">← Voltar ao Resumo de Estudos</a></p>
+    </footer>
+
+    <script src="arrays-dom.js"></script>
+    <script>
+        // ============================================
+        // DESAFIO 1 - forEach, map, filter
+        // ============================================
+        // 🎯 MISSÃO: Transforme e filtre o array de números.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // const numeros = [3, 7, 12, 5, 20, 8, 15, 2];
+        //
+        // document.querySelector("#btn-desafio1").addEventListener("click", () => {
+        //     // map: dobro de cada número
+        //     const dobros = numeros.map((numero) => numero * 2);
+        //
+        //     // filter: só os pares
+        //     const pares = numeros.filter((numero) => numero % 2 === 0);
+        //
+        //     const resultado = document.querySelector("#resultado1");
+        //     resultado.textContent =
+        //         `Array original: [${numeros}]\n` +
+        //         `Dobro (map):    [${dobros}]\n` +
+        //         `Pares (filter): [${pares}]`;
+        // });
+
+
+        // ============================================
+        // DESAFIO 2 - find e reduce
+        // ============================================
+        // 🎯 MISSÃO: Encontre produtos e calcule o total.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // const produtos = [
+        //     { nome: "Camiseta", preco: 49.90 },
+        //     { nome: "Calça", preco: 129.90 },
+        //     { nome: "Tênis", preco: 299.90 },
+        //     { nome: "Boné", preco: 39.90 },
+        //     { nome: "Jaqueta", preco: 189.90 }
+        // ];
+        //
+        // document.querySelector("#btn-desafio2").addEventListener("click", () => {
+        //     // find: primeiro produto acima de R$100
+        //     const caro = produtos.find((produto) => produto.preco > 100);
+        //
+        //     // reduce: soma de todos os preços
+        //     const total = produtos.reduce((soma, produto) => soma + produto.preco, 0);
+        //
+        //     // filter: todos abaixo de R$100
+        //     const baratos = produtos.filter((produto) => produto.preco < 100);
+        //     const nomesBaratos = baratos.map((p) => p.nome);
+        //
+        //     const resultado = document.querySelector("#resultado2");
+        //     resultado.textContent =
+        //         `Primeiro acima de R$100 (find): ${caro.nome} - R$${caro.preco}\n` +
+        //         `Total de todos (reduce): R$${total.toFixed(2)}\n` +
+        //         `Abaixo de R$100 (filter): ${nomesBaratos.join(", ")}`;
+        // });
+
+
+        // ============================================
+        // DESAFIO 3 - Destructuring
+        // ============================================
+        // 🎯 MISSÃO: Extraia valores usando destructuring.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // document.querySelector("#btn-desafio3").addEventListener("click", () => {
+        //     // Parte 1: Destructuring de objeto
+        //     const pessoa = { nome: "Gabriel", idade: 25, cidade: "BH", profissao: "Dev" };
+        //     const { nome, idade, cidade } = pessoa;
+        //
+        //     // Parte 2: Destructuring de array
+        //     const cores = ["vermelho", "azul", "verde", "amarelo"];
+        //     const [primeira, segunda] = cores;
+        //
+        //     // Parte 3: Destructuring em função
+        //     function apresentar({ nome, profissao }) {
+        //         return `${nome} é ${profissao}`;
+        //     }
+        //
+        //     const resultado = document.querySelector("#resultado3");
+        //     resultado.textContent =
+        //         `Objeto → nome: ${nome}, idade: ${idade}, cidade: ${cidade}\n` +
+        //         `Array → primeira: ${primeira}, segunda: ${segunda}\n` +
+        //         `Função → ${apresentar(pessoa)}`;
+        // });
+
+
+        // ============================================
+        // DESAFIO 4 - Spread Operator
+        // ============================================
+        // 🎯 MISSÃO: Combine, copie e adicione sem mutar.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // document.querySelector("#btn-desafio4").addEventListener("click", () => {
+        //     // Parte 1: Combinar arrays
+        //     const frontend = ["HTML", "CSS", "JavaScript"];
+        //     const backend = ["Node.js", "Python", "Java"];
+        //     const todasLinguagens = [...frontend, ...backend];
+        //
+        //     // Parte 2: Copiar e modificar objeto
+        //     const usuario = { nome: "Gabriel", cidade: "BH", nivel: "iniciante" };
+        //     const usuarioAtualizado = { ...usuario, cidade: "SP", nivel: "intermediário" };
+        //
+        //     // Parte 3: Adicionar item sem push
+        //     const frontendComTS = [...frontend, "TypeScript"];
+        //
+        //     const resultado = document.querySelector("#resultado4");
+        //     resultado.textContent =
+        //         `Combinar: [${todasLinguagens.join(", ")}]\n` +
+        //         `Original: ${JSON.stringify(usuario)}\n` +
+        //         `Atualizado: ${JSON.stringify(usuarioAtualizado)}\n` +
+        //         `Com TypeScript: [${frontendComTS.join(", ")}]`;
+        // });
+
+
+        // ============================================
+        // DESAFIO 5 - createElement + appendChild
+        // ============================================
+        // 🎯 MISSÃO: Crie elementos na página dinamicamente.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // document.querySelector("#btn-desafio5").addEventListener("click", () => {
+        //     const nomes = ["Maria", "João", "Ana", "Carlos", "Beatriz"];
+        //     const lista = document.querySelector("#lista-nomes");
+        //     lista.innerHTML = "";  // Limpar antes de adicionar
+        //
+        //     nomes.forEach((nome) => {
+        //         const li = document.createElement("li");
+        //         li.textContent = nome;
+        //         lista.appendChild(li);
+        //     });
+        // });
+
+
+        // ============================================
+        // DESAFIO 6 - Remover + Event Delegation
+        // ============================================
+        // 🎯 MISSÃO: Crie uma lista onde cada item pode ser removido.
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // const listaRemovivel = document.querySelector("#lista-removivel");
+        //
+        // document.querySelector("#btn-desafio6").addEventListener("click", () => {
+        //     const nomes = ["Maria", "João", "Ana", "Carlos", "Beatriz"];
+        //     listaRemovivel.innerHTML = "";
+        //
+        //     nomes.forEach((nome) => {
+        //         const li = document.createElement("li");
+        //
+        //         const span = document.createElement("span");
+        //         span.textContent = nome;
+        //
+        //         const btnRemover = document.createElement("button");
+        //         btnRemover.textContent = "✕";
+        //         btnRemover.classList.add("btn-remover");
+        //
+        //         li.appendChild(span);
+        //         li.appendChild(btnRemover);
+        //         listaRemovivel.appendChild(li);
+        //     });
+        // });
+        //
+        // // Event Delegation: um evento para toda a lista
+        // listaRemovivel.addEventListener("click", (event) => {
+        //     if (event.target.classList.contains("btn-remover")) {
+        //         event.target.closest("li").remove();
+        //     }
+        // });
+
+
+        // ============================================
+        // DESAFIO 7 - Mini To-Do List
+        // ============================================
+        // 🎯 MISSÃO: Crie uma To-Do List completa!
+        //
+        // ESCREVA SEU CÓDIGO AQUI:
+        //
+        // const inputTarefa = document.querySelector("#input-tarefa");
+        // const btnAdicionar = document.querySelector("#btn-adicionar");
+        // const listaTarefas = document.querySelector("#lista-tarefas");
+        // const contadorTarefas = document.querySelector("#contador-tarefas");
+        //
+        // function atualizarContador() {
+        //     const todas = listaTarefas.querySelectorAll("li");
+        //     const pendentes = [...todas].filter((li) => !li.classList.contains("concluida"));
+        //     contadorTarefas.textContent = `${pendentes.length} tarefa(s) pendente(s)`;
+        // }
+        //
+        // function adicionarTarefa() {
+        //     const texto = inputTarefa.value.trim();
+        //     if (texto === "") return;
+        //
+        //     const li = document.createElement("li");
+        //
+        //     const span = document.createElement("span");
+        //     span.textContent = texto;
+        //
+        //     const btnRemover = document.createElement("button");
+        //     btnRemover.textContent = "✕";
+        //     btnRemover.classList.add("btn-remover");
+        //
+        //     li.appendChild(span);
+        //     li.appendChild(btnRemover);
+        //     listaTarefas.appendChild(li);
+        //
+        //     inputTarefa.value = "";
+        //     inputTarefa.focus();
+        //     atualizarContador();
+        // }
+        //
+        // // Adicionar com botão
+        // btnAdicionar.addEventListener("click", adicionarTarefa);
+        //
+        // // Adicionar com Enter
+        // inputTarefa.addEventListener("keydown", (event) => {
+        //     if (event.key === "Enter") {
+        //         adicionarTarefa();
+        //     }
+        // });
+        //
+        // // Event Delegation: remover e concluir
+        // listaTarefas.addEventListener("click", (event) => {
+        //     // Clicou no botão remover
+        //     if (event.target.classList.contains("btn-remover")) {
+        //         event.target.closest("li").remove();
+        //         atualizarContador();
+        //     }
+        //     // Clicou no texto da tarefa (span)
+        //     else if (event.target.tagName === "SPAN") {
+        //         event.target.closest("li").classList.toggle("concluida");
+        //         atualizarContador();
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

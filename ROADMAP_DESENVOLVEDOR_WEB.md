@@ -18,45 +18,45 @@ Bem-vindo à sua jornada no desenvolvimento web! Este roadmap foi criado para gu
 
 ---
 
-## 📚 FASE 1: Fundamentos (2-3 meses)
+## 📚 FASE 1: Fundamentos ✅ CONCLUÍDA
 
-### 1.1 HTML - A Estrutura da Web
+### 1.1 HTML - A Estrutura da Web ✅ CONCLUÍDO
 > *HTML é como o "esqueleto" de uma página web*
 
 **Conceitos para aprender:**
-- [ ] O que é HTML e como funciona
-- [ ] Tags básicas: `<html>`, `<head>`, `<body>`
-- [ ] Títulos e parágrafos: `<h1>` a `<h6>`, `<p>`
-- [ ] Links: `<a href="">`
-- [ ] Imagens: `<img>`
-- [ ] Listas: `<ul>`, `<ol>`, `<li>`
-- [ ] Tabelas: `<table>`, `<tr>`, `<td>`
-- [ ] Formulários: `<form>`, `<input>`, `<button>`
-- [ ] Divisões e containers: `<div>`, `<span>`
-- [ ] HTML Semântico: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
+- [x] O que é HTML e como funciona
+- [x] Tags básicas: `<html>`, `<head>`, `<body>`
+- [x] Títulos e parágrafos: `<h1>` a `<h6>`, `<p>`
+- [x] Links: `<a href="">`
+- [x] Imagens: `<img>`
+- [x] Listas: `<ul>`, `<ol>`, `<li>`
+- [x] Tabelas: `<table>`, `<tr>`, `<td>`
+- [x] Formulários: `<form>`, `<input>`, `<button>`
+- [x] Divisões e containers: `<div>`, `<span>`
+- [x] HTML Semântico: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
 
 **Projeto Prático:**
 - Criar uma página pessoal simples com informações sobre você
 
 ---
 
-### 1.2 CSS - O Visual da Web
+### 1.2 CSS - O Visual da Web ✅ CONCLUÍDO
 > *CSS é como a "roupa" e "maquiagem" da página*
 
 **Conceitos para aprender:**
-- [ ] O que é CSS e como conectar ao HTML
-- [ ] Seletores: elemento, classe (`.`), ID (`#`)
-- [ ] Cores e backgrounds
-- [ ] Fontes e tipografia
-- [ ] Box Model: margin, padding, border
-- [ ] Display: block, inline, inline-block
-- [ ] Posicionamento: static, relative, absolute, fixed
-- [ ] **Flexbox** (muito importante!)
-- [ ] **CSS Grid** (muito importante!)
-- [ ] Responsividade: Media Queries
-- [ ] Unidades: px, %, em, rem, vh, vw
-- [ ] Variáveis CSS (Custom Properties)
-- [ ] Transições e animações básicas
+- [x] O que é CSS e como conectar ao HTML
+- [x] Seletores: elemento, classe (`.`), ID (`#`)
+- [x] Cores e backgrounds
+- [x] Fontes e tipografia
+- [x] Box Model: margin, padding, border
+- [x] Display: block, inline, inline-block
+- [x] Posicionamento: static, relative, absolute, fixed
+- [x] **Flexbox** (muito importante!)
+- [x] **CSS Grid** (muito importante!)
+- [x] Responsividade: Media Queries
+- [x] Unidades: px, %, em, rem, vh, vw
+- [x] Variáveis CSS (Custom Properties)
+- [x] Transições e animações básicas
 
 **Projetos Práticos:**
 - Estilizar sua página pessoal
@@ -82,31 +82,31 @@ Bem-vindo à sua jornada no desenvolvimento web! Este roadmap foi criado para gu
 
 ## ⚡ FASE 2: Interatividade com JavaScript (2-3 meses)
 
-### 2.1 JavaScript Básico
+### 2.1 JavaScript Básico 🟡 EM PROGRESSO
 > *JavaScript traz sua página "à vida"*
 
 **Conceitos para aprender:**
-- [ ] Sintaxe básica do JavaScript
-- [ ] Variáveis: `let`, `const`, `var`
-- [ ] Tipos de dados
-- [ ] Funções normais e arrow functions
+- [x] Sintaxe básica do JavaScript
+- [x] Variáveis: `let`, `const`, `var`
+- [x] Tipos de dados
+- [x] Funções normais e arrow functions
 - [ ] Arrays e métodos: `push`, `pop`, `map`, `filter`, `forEach`
-- [ ] Objetos e propriedades
-- [ ] Template literals (template strings)
+- [x] Objetos e propriedades
+- [x] Template literals (template strings)
 - [ ] Desestruturação (destructuring)
 - [ ] Spread operator (`...`)
 
 ---
 
-### 2.2 JavaScript no Navegador (DOM)
+### 2.2 JavaScript no Navegador (DOM) 🟡 EM PROGRESSO
 > *DOM é como o JavaScript "conversa" com a página HTML*
 
 **Conceitos para aprender:**
-- [ ] O que é o DOM
-- [ ] Selecionando elementos: `querySelector`, `getElementById`
-- [ ] Modificando conteúdo: `innerHTML`, `textContent`
-- [ ] Modificando estilos: `style`, `classList`
-- [ ] Eventos: `click`, `submit`, `keydown`, `mouseover`
+- [x] O que é o DOM
+- [x] Selecionando elementos: `querySelector`, `getElementById`
+- [x] Modificando conteúdo: `innerHTML`, `textContent`
+- [x] Modificando estilos: `style`, `classList`
+- [x] Eventos: `click`, `submit`, `keydown`, `mouseover`
 - [ ] Criando e removendo elementos
 - [ ] Navegação entre elementos (pai, filho, irmãos)
 

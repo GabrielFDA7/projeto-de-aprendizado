@@ -94,7 +94,7 @@ senhaConta.addEventListener("input", () => {
     const senhaValor = senhaConta.value;
     barra.className = "barra";
 
-    if (senhaValor.length === 0){
+    if (senhaValor.length === 0) {
         senhaForca.textContent = "";
         return;
     }
@@ -103,7 +103,7 @@ senhaConta.addEventListener("input", () => {
     const temLetra = /[a-zA-Z]/.test(senhaValor);
     const temEspecial = /[!@#$%&*()_+\|-]/.test(senhaValor);
 
-    if (senhaValor.length < 6 ) {
+    if (senhaValor.length < 6) {
         barra.classList.add("fraca");
         senhaForca.textContent = "Senha fraca!";
         senhaForca.style.color = "Red";
@@ -118,7 +118,7 @@ senhaConta.addEventListener("input", () => {
         senhaForca.textContent = "Senha média!";
         senhaForca.style.color = "Yellow";
     }
-    else if (senhaValor.length >= 6 ) {
+    else if (senhaValor.length >= 6) {
         barra.classList.add("media");
         senhaForca.textContent = "Senha média!";
         senhaForca.style.color = "Yellow";
@@ -144,3 +144,58 @@ confirmarSenha.addEventListener("input", () => {
         erroConfirmar.textContent = "";
     }
 })
+
+const motivacaoTextArea = document.querySelector("#motivacao");
+
+motivacaoTextArea.addEventListener("input", () => {
+    const motivacao = document.querySelector("#motivacao").value;
+    const contador = document.querySelector("#contador-motivacao");
+
+    contador.textContent = `${motivacao.length}/200`;
+});
+
+const formCompleto = document.querySelector("#form-cadastro-completo");
+const entradas = new FormData(formCompleto);
+
+formCompleto.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const entradasResultado = Object.fromEntries(entradas);
+
+    entradasResultado.interesses = entradas.getAll("interesses");
+
+    const resultado = document.querySelector("#resultado-cadastro");
+
+    resultado.textContent = JSON.stringify(entradasResultado, null, 2);;
+})
+
+const nomeCompleto = document.querySelector("#nome-completo");
+
+function validarNomeCompleto() {
+    const nomeCompletoInput = nomeCompleto.value;
+    const spanNomeCompleto = document.querySelector("#erro-nome-completo");
+
+    if (nomeCompletoInput.trim() === "") {
+        nomeCompleto.classList.add("erro");
+        spanNomeCompleto.textContent = "O nome deve estar preenchido!";
+    }
+    else if (nomeCompletoInput.length < 3) {
+        nomeCompleto.classList.add("erro");
+        spanNomeCompleto.textContent = "O nome deve ser maior que dois caractéres!";
+    }
+    else {
+        nomeCompleto.classList.remove("erro");
+        spanNomeCompleto.textContent = "";  // limpa o erro
+    }
+}
+
+
+
+nomeCompleto.addEventListener("input", (event) => {
+    event.preventDefault();
+
+    validarNomeCompleto();
+
+})
+
+

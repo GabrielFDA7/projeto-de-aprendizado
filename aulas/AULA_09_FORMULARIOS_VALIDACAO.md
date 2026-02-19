@@ -468,13 +468,13 @@ O navegador já mostra mensagens de erro! Mas JavaScript permite:
 
 ## ➡️ Próxima Aula
 
-Na **Aula 10** vamos aprender sobre **Local Storage e Persistência de Dados**! 💾
+Na **Aula 10** vamos aprender sobre **Arrays, JS Moderno e DOM Dinâmico**! ⚡
 
 Você vai aprender a:
-- Salvar dados no navegador do usuário
-- Recuperar dados após fechar a página
-- Criar funcionalidades que "lembram" preferências
-- Implementar um sistema de favoritos ou lista de tarefas persistente!
+- Usar `map`, `filter`, `find` e `reduce` para transformar arrays
+- Extrair valores com destructuring e combinar com spread operator
+- Criar e remover elementos HTML dinamicamente com JavaScript
+- Construir uma mini To-Do List do zero!
 
 ---
 
