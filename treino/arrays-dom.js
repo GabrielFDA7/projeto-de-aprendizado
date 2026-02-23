@@ -77,3 +77,83 @@ botao3.addEventListener("click", (event) => {
     apresentar(pessoa);
 })
 
+//DESAFIO 4
+
+const frontend = ["HTML", "CSS", "JavaScript"];
+const backend = ["Node.js", "Python", "Java"];
+
+const fullstack = [...frontend, ...backend];
+
+const botao4 = document.querySelector("#btn-desafio4");
+const resultado4 = document.querySelector("#resultado4");
+
+const usuario = { nome: "Gabriel", cidade: "BH", nivel: "iniciante" };
+
+botao4.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    resultado4.innerHTML = `A junção dos arrays é: ${fullstack.join(", ")}`;
+
+    const usuarioAlterado = {...usuario, cidade: "Uberlândia"};
+
+    resultado4.innerHTML += `<br>O objeto usuario teve sua cidade alterada para ${usuarioAlterado.cidade}`;
+
+    const frontendAlterado = [...frontend, "TypeScript"];
+
+    resultado4.innerHTML += `<br>O array <code>frontend</code> agora é: ${frontendAlterado.join(", ")}`;
+
+})
+
+//DESAFIO 5
+
+
+const estudantes = ["Maria", "João", "Ana", "Carlos", "Beatriz"];
+
+const botao5 = document.querySelector("#btn-desafio5");
+const lista = document.querySelector("#lista-nomes");
+
+botao5.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    estudantes.forEach((estudante) => {
+        const li = document.createElement("li");
+
+        li.textContent += estudante;
+        lista.appendChild(li);
+    });
+});
+
+//DESAFIO 6
+
+const alunos = ["Maria", "João", "Ana", "Carlos", "Beatriz"];
+
+const listaRemovivel = document.querySelector("#lista-removivel");
+
+const botao6 = document.querySelector("#btn-desafio6");
+
+botao6.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    alunos.forEach((aluno) => {
+        const liRemovivel = document.createElement("li");
+
+        liRemovivel.innerHTML += `<span>${aluno} <button class="btn-remover">X</button></span>`;
+        listaRemovivel.appendChild(liRemovivel);
+    });
+});
+
+listaRemovivel.addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-remover")){
+        event.target.closest("li").remove();
+    }
+});
+
+//DESAFIO 7
+
+const botaoAdicionar = document.querySelector("#btn-adicionar");
+
+botaoAdicionar.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    
+})
