@@ -20,7 +20,7 @@ botao.addEventListener("click", (event) => {
     const resultado = document.querySelector("#resultado1");
 
     resultado.innerHTML = `Dobro: ${dobroMeuArray.join(", ")} <br>Pares: ${pares.join(", ")}`;
-    
+
 });
 
 //DESAFIO 2
@@ -58,13 +58,13 @@ const { nome, idade, cidade, profissao } = pessoa;
 
 const cores = ["vermelho", "azul", "verde", "amarelo"];
 
-const [ primeiro, segundo ] = cores; 
+const [primeiro, segundo] = cores;
 
 const botao3 = document.querySelector("#btn-desafio3");
 
 const resultado3 = document.querySelector("#resultado3");
 
-function apresentar( { nome, idade, cidade }) {
+function apresentar({ nome, idade, cidade }) {
     resultado3.innerHTML += `<br>Apresentando com função: ${nome}, ${idade} e mora em ${cidade}`;
 }
 
@@ -94,7 +94,7 @@ botao4.addEventListener("click", (event) => {
 
     resultado4.innerHTML = `A junção dos arrays é: ${fullstack.join(", ")}`;
 
-    const usuarioAlterado = {...usuario, cidade: "Uberlândia"};
+    const usuarioAlterado = { ...usuario, cidade: "Uberlândia" };
 
     resultado4.innerHTML += `<br>O objeto usuario teve sua cidade alterada para ${usuarioAlterado.cidade}`;
 
@@ -143,7 +143,7 @@ botao6.addEventListener("click", (event) => {
 });
 
 listaRemovivel.addEventListener("click", (event) => {
-    if (event.target.classList.contains("btn-remover")){
+    if (event.target.classList.contains("btn-remover")) {
         event.target.closest("li").remove();
     }
 });
@@ -151,9 +151,45 @@ listaRemovivel.addEventListener("click", (event) => {
 //DESAFIO 7
 
 const botaoAdicionar = document.querySelector("#btn-adicionar");
+const listaTarefas = document.querySelector("#lista-tarefas");
+const contadorTarefas = document.querySelector("#contador-tarefas");
 
 botaoAdicionar.addEventListener("click", (event) => {
     event.preventDefault();
 
-    
-})
+    const campo = document.querySelector("#input-tarefa");
+    const campoValor = campo.value;
+
+    if (campoValor.trim() === "") {
+        return;
+    };
+
+    const li = document.createElement("li");
+
+    li.innerHTML += `<span class="tarefa">${campoValor} <button class="btn-remover">X</button></span>`
+    listaTarefas.appendChild(li);
+
+    campo.value = "";
+
+    const pendentes = document.querySelectorAll("#lista-tarefas li:not(.concluida)").length;
+
+    contadorTarefas.textContent = `${pendentes} tarefas pendentes`;
+});
+
+listaTarefas.addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-remover")) {
+        event.target.closest("li").remove();
+        const numTarefas = document.querySelectorAll("#lista-tarefas li").length;
+        contadorTarefas.textContent = `${numTarefas} tarefa(s) pendente(s)`;
+    }
+    else if (event.target.classList.contains("tarefa")) {
+        event.target.closest("li").classList.toggle("concluida");
+
+        const pendentes = document.querySelectorAll("#lista-tarefas li:not(.concluida)").length;
+        contadorTarefas.textContent = `${pendentes} tarefa(s) pendente(s)`;
+    }
+});
+
+
+
+
